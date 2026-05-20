@@ -3,7 +3,7 @@ A nonce setter for all devices compatible with Blackbird.
 
 -----------------------------------------
 
-iOS version doesn't matter anymore, as you can restore to any version with turdus_merula. If your device is compatible with blackbird and turdus_merula. Then you can set your nonce, save SHSH for unsigned versions, and downgrade.
+iOS version doesn't matter anymore, as you can restore to any version with turdus_merula. If your device is compatible with blackbird and turdus_merula. Then you can set your nonce, and downgrade.
 
 -----------------------------------------
 
