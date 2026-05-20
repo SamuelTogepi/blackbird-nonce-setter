@@ -2,99 +2,199 @@
 
 clear
 echo "========================================================================="
-echo "       blackbird-nonce-setter & turdus_merula (A9/A10)"
-echo "            Target: iPad 6th Generation -> iOS 11.3"
+echo "              Samuel's SHSH & IPSW Component Patching Tool"
+echo "                      (Automated Hash Injector)"
 echo "========================================================================="
 echo ""
 
 # Ensure we are running on macOS or Linux
 OS="$(uname)"
 if [[ "$OS" != "Darwin" && "$OS" != "Linux" ]]; then
-    echo "[#] Error: turdus_merula requires macOS or Linux."
+    echo "[#] Error: This script requires macOS or Linux."
     exit 1
 fi
 
-# Locate turdus_merula directory
-if [ -d "turdus_m3rula" ]; then
-    cd turdus_m3rula || exit 1
-elif [ -f "./bin/turdus_merula" ]; then
-    echo "[!] Already inside the turdus_merula directory."
-else
-    echo "[?] Please enter the path to your extracted turdus_merula folder:"
-    read -r tm_path
-    tm_path=$(echo "$tm_path" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g')
-    cd "$tm_path" || { echo "[#] Error: Invalid directory."; exit 1; }
+IMG4TOOL="/usr/local/bin/img4tool"
+if [ ! -f "$IMG4TOOL" ]; then
+    if command -v img4tool &> /dev/null; then
+        IMG4TOOL="img4tool"
+    else
+        echo "[#] Error: img4tool is not installed. Please install it first or run Déverser."
+        exit 1
+    fi
 fi
 
-# Apply permissions and clear extended attributes
-echo "[*] Setting permissions on binaries..."
-chmod +x ./bin/* 2>/dev/null
-if [[ "$OS" == "Darwin" ]]; then
-    echo "[*] Clearing extended attributes recursively on bin directory..."
-    /usr/bin/xattr -cr ./bin 2>/dev/null
-fi
-
-# Step 1: Input IPSW
-echo ""
-echo "[?] Drag and drop your iOS 11.3 IPSW file into this window and press Enter:"
-read -r ipsw
-
-# Clean quotes, remove shell escape backslashes, and trim trailing whitespace
-ipsw=$(echo "$ipsw" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
-
-if [ ! -f "$ipsw" ]; then
-    echo "[#] Error: IPSW file not found at path: $ipsw"
-    exit 1
-fi
-
-# Step 2: Input & Validate 11.3 SHSH Blobs
-echo ""
-echo "[?] Drag and drop your iOS 11.3 SHSH/SHSH2 blob file into this window and press Enter:"
+# ==========================================
+# MODULE 1: SHSH Verification
+# ==========================================
+echo "------------------------------------------------------------------------"
+echo " [1/3] SHSH Verification Module"
+echo "------------------------------------------------------------------------"
+echo "[?] Drag and drop your iOS 11.3 SHSH blob file here and press Enter:"
 read -r shsh
-
-# Clean quotes, remove shell escape backslashes, and trim trailing whitespace
 shsh=$(echo "$shsh" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
 
 if [ ! -f "$shsh" ]; then
-    echo "[#] Error: Blob file not found at path: $shsh"
+    echo "[#] Error: Blob file not found."
     exit 1
 fi
 
-# Extract and display generator
-getGenerator() {
-    grep -A 1 -i "generator" "$1" | grep "<string>0x" | sed -E 's/.*<string>(0x[0-9a-fA-F]+)<\/string>.*/\1/'
-}
-generator=$(getGenerator "$shsh")
-
-if [ -z "$generator" ]; then
-    echo "[#] Error: Failed to parse a valid generator from the blob."
+echo "[*] Checking signature integrity with img4tool..."
+$IMG4TOOL -s "$shsh" &> /dev/null
+if [ $? -ne 0 ]; then
+    echo "[#] Error: img4tool reports this SHSH signature/ticket is corrupted or invalid."
     exit 1
 fi
-echo "[!] Parsed Generator: $generator"
 
-# Step 3: Run turdusra1n with Generator (Blackbird Nonce Setter)
+# Parse ECID and Generator
+ecid=$($IMG4TOOL -s "$shsh" | grep "ECID" | cut -d' ' -f2)
+generator=$(grep -A 1 -i "generator" "$shsh" | grep "<string>0x" | sed -E 's/.*<string>(0x[0-9a-fA-F]+)<\/string>.*/\1/')
+
+echo "[!] Blob Verification: SUCCESS"
+echo "[!] ECID inside Blob: $ecid"
+echo "[!] Generator inside Blob: $generator"
 echo ""
+
+# ==========================================
+# MODULE 2: Component Mismatch Fix (IPSW Patching)
+# ==========================================
+echo "------------------------------------------------------------------------"
+echo " [2/3] Component Hash Fix (AOP Patching & Hash Injection)"
+echo "------------------------------------------------------------------------"
+echo "Do you want to patch your iOS 11.3 IPSW to fix the 'Failed to image4 manifest check [comp: AOP]' error? (y/n)"
+read -r patch_choice
+
+if [[ "$patch_choice" =~ ^[Yy](es)?$ ]]; then
+    echo "[?] Drag and drop your original iOS 11.3 IPSW file and press Enter:"
+    read -r ipsw_11
+    ipsw_11=$(echo "$ipsw_11" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
+
+    if [ ! -f "$ipsw_11" ]; then
+        echo "[#] Error: iOS 11.3 IPSW not found."
+        exit 1
+    fi
+
+    echo "[?] Drag and drop your signed iOS 17.7.11 IPSW file (downloaded from ipsw.me) and press Enter:"
+    read -r ipsw_17
+    ipsw_17=$(echo "$ipsw_17" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
+
+    if [ ! -f "$ipsw_17" ]; then
+        echo "[#] Error: iOS 17.7.11 IPSW not found."
+        exit 1
+    fi
+
+    echo ""
+    echo "[*] Creating working directories..."
+    mkdir -p tmp_11_extract tmp_17_extract
+    
+    echo "[*] Extracting iOS 17.7.11 components..."
+    unzip -q -j "$ipsw_17" "Firmware/AOP/aopfw-ipad7baop.RELEASE.im4p" -d tmp_17_extract/
+    unzip -q -j "$ipsw_17" "BuildManifest.plist" -d tmp_17_extract/
+    
+    if [ ! -f "tmp_17_extract/aopfw-ipad7baop.RELEASE.im4p" ]; then
+        echo "[#] Error: Could not extract components from iOS 17 IPSW."
+        rm -rf tmp_11_extract tmp_17_extract
+        exit 1
+    fi
+
+    echo "[*] Unzipping iOS 11.3 IPSW structure..."
+    unzip -q "$ipsw_11" -d tmp_11_extract/
+
+    echo "[*] Granting write permissions to extracted folders..."
+    chmod -R +w tmp_11_extract tmp_17_extract 2>/dev/null
+
+    echo "[*] Overriding iOS 11.3 AOP firmware binary with iOS 17.7.11 version..."
+    cp -f tmp_17_extract/aopfw-ipad7baop.RELEASE.im4p tmp_11_extract/Firmware/AOP/aopfw-ipad7baop.im4p
+
+    echo "[*] Writing Python helper to patch BuildManifest.plist hashes..."
+    cat << 'EOF' > patch_manifest.py
+import sys
+import plistlib
+
+manifest11_path = sys.argv[1]
+manifest17_path = sys.argv[2]
+
+try:
+    with open(manifest11_path, 'rb') as f:
+        plist11 = plistlib.load(f)
+
+    with open(manifest17_path, 'rb') as f:
+        plist17 = plistlib.load(f)
+
+    aop_17 = None
+    for identity in plist17.get('BuildIdentities', []):
+        manifest = identity.get('Manifest', {})
+        if 'AOP' in manifest:
+            aop_17 = manifest['AOP']
+            # Make sure it points to the destination filename expected in iOS 11.3
+            if 'Info' in aop_17 and 'Path' in aop_17['Info']:
+                aop_17['Info']['Path'] = "Firmware/AOP/aopfw-ipad7baop.im4p"
+            break
+
+    if not aop_17:
+        print("[-] Error: AOP key not found in iOS 17 BuildManifest.")
+        sys.exit(1)
+
+    patched_count = 0
+    for identity in plist11.get('BuildIdentities', []):
+        manifest = identity.get('Manifest', {})
+        if 'AOP' in manifest:
+            manifest['AOP'] = aop_17
+            patched_count += 1
+
+    if patched_count == 0:
+        print("[-] Warning: No AOP key found in iOS 11.3 BuildManifest to replace.")
+        sys.exit(1)
+
+    with open(manifest11_path, 'wb') as f:
+        plistlib.dump(plist11, f)
+
+    print(f"[+] Successfully matched and patched AOP hashes inside {patched_count} build manifest identities.")
+except Exception as e:
+    print(f"[-] Python error: {e}")
+    sys.exit(1)
+EOF
+
+    echo "[*] Executing BuildManifest hash injection..."
+    python3 patch_manifest.py tmp_11_extract/BuildManifest.plist tmp_17_extract/BuildManifest.plist
+    
+    if [ $? -ne 0 ]; then
+        echo "[#] Error: BuildManifest patch failed. Aborting."
+        rm -f patch_manifest.py
+        rm -rf tmp_11_extract tmp_17_extract
+        exit 1
+    fi
+    rm -f patch_manifest.py
+
+    echo "[*] Repacking patched iOS 11.3 IPSW (this may take a couple of minutes)..."
+    patched_filename="iPad_7,5_11.3_PATCHED.ipsw"
+    
+    rm -f "../$patched_filename"
+    cd tmp_11_extract || exit 1
+    zip -q -r "../$patched_filename" .
+    cd ..
+
+    echo "[!] Patched IPSW successfully written to: $patched_filename"
+    
+    # Cleanup working directories
+    echo "[*] Cleaning up temporary files..."
+    rm -rf tmp_11_extract tmp_17_extract
+else
+    echo "[*] Skipping IPSW patching."
+fi
+
+# ==========================================
+# MODULE 3: Final Execution Directions
+# ==========================================
+echo ""
+echo "------------------------------------------------------------------------"
+echo " [3/3] Execution Guidelines"
+echo "------------------------------------------------------------------------"
+if [ -f "iPad_7,5_11.3_PATCHED.ipsw" ]; then
+    echo "Run the restore using your valid SHSH blob and the newly patched IPSW:"
+    echo ""
+    echo "sudo ./bin/turdus_merula -w --load-shsh $shsh $(pwd)/iPad_7,5_11.3_PATCHED.ipsw"
+else
+    echo "No patched IPSW was created."
+fi
 echo "========================================================================="
-echo " STEP 1/2: Exploiting & Setting Nonce with turdusra1n"
-echo "========================================================================="
-echo "[*] Run commands below when prompted:"
-echo "[*] Triggering: ./bin/turdusra1n -Db $generator"
-echo "[*] Follow the on-screen instructions to enter DFU mode."
-echo ""
-read -p "Press Enter to execute exploit..." _
-
-sudo ./bin/turdusra1n -Db "$generator"
-
-# Step 4: Execute Restore
-echo ""
-echo "========================================================================="
-echo " STEP 2/2: Restoring with turdus_merula"
-echo "========================================================================="
-echo "[*] Triggering: ./bin/turdus_merula -w --load-shsh $shsh $ipsw"
-echo ""
-read -p "Press Enter to start the restoration..." _
-
-sudo ./bin/turdus_merula -w --load-shsh "$shsh" "$ipsw"
-
-echo ""
-echo "[!] Restore command finished. Follow any remaining on-screen prompts in your terminal."
