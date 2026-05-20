@@ -1,0 +1,682 @@
+08:35:21.395    <Info> idevicerestore_fork 1.0.0-git-a73b9de (libirecovery 1.2.1-31-g0b48934, libtatsu 1.0.5-3-g60a39f3)
+08:35:21.405    <Info> Found device in DFU mode
+08:35:21.406    <Info> ECID: 3440501300264998
+08:35:21.406    <Info> Identified device as j71bap, iPad7,5
+08:35:21.407    <Info> Device Product Version: N/A
+08:35:21.407    <Info> Device Product Build: N/A
+08:35:21.407    <Info> Extracting BuildManifest from IPSW
+08:35:21.412    <Info> IPSW Product Version: 17.7.11
+08:35:21.412    <Info> IPSW Product Build: 21H461 Major: 21
+08:35:21.412    <Info> RAMDisk type: 0x0004
+08:35:21.412    <Info> Loading overlay ramdisk...
+08:35:21.412    <Info> Loaded embedded overlay ramdisk, length 1048632
+08:35:21.412    <Info> Loading Pongo...
+08:35:21.413    <Info> Loaded embedded Pongo, length 238128
+08:35:21.413    <Info> Loading sep_racer...
+08:35:21.416    <Info> Loaded embedded sep_racer module, length 1211568
+08:35:21.416    <Info> Loading kpf...
+08:35:21.416    <Info> Loaded embedded kpf module, length 92296
+08:35:21.416    <Info> Loading cpf...
+08:35:21.416    <Info> Loaded embedded cpf module, length 67504
+08:35:21.416    <Info> Checking PongoOS image...
+08:35:21.416    <Info> Loading image flags...
+08:35:21.416    <Info> Checking image flags...
+08:35:21.416    <Info> Checking image version flags...
+08:35:21.416    <Info> Device supports Image4: true
+08:35:21.416    <Info> Variant: Customer Erase Install (IPSW)
+08:35:21.416    <Info> This restore will erase all device data.
+08:35:21.534    <Info> The following firmwares are currently being signed for iPad7,5:
+08:35:21.534    <Info>   [1] 17.7.11 (build 21H461)
+08:35:21.534    <Info>   [2] 17.7.10 (build 21H450)
+08:35:30.484    <Info> Selected SE/RestoreSEP/Base version 17.7.11 (build 21H461)
+08:35:32.190    <Info> Downloading BuildManifest.plist
+08:35:32.447    <Info> SE Firmware manifest information
+08:35:32.448    <Info> Variant: Customer Erase Install (IPSW)
+08:35:32.448    <Info> This restore will erase all device data.
+08:35:32.448    <Info> Downloading Firmware/SE/Stockholm4.RELEASE.sefw
+08:35:34.838    <Info> RestoreSEP manifest information
+08:35:34.838    <Info> Variant: Customer Erase Install (IPSW)
+08:35:34.838    <Info> This restore will erase all device data.
+08:35:34.838    <Info> Downloading Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p
+08:35:35.108    <Info> Base Firmware manifest information
+08:35:35.108    <Info> Variant: Customer Erase Install (IPSW)
+08:35:35.108    <Info> This restore will erase all device data.
+08:35:35.108    <Info> Downloading Firmware/all_flash/LLB.ipad7b.RELEASE.im4p
+08:35:35.403    <Info> Downloading Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p
+08:35:35.575    <Info> Downloading Firmware/all_flash/applelogo@2x~ipad.im4p
+08:35:35.674    <Info> Downloading Firmware/all_flash/recoverymode@2x~ipad-lightning.im4p
+08:35:35.850    <Info> Downloading Firmware/all_flash/batterycharging0@2x~ipad.im4p
+08:35:35.941    <Info> Downloading Firmware/all_flash/batterycharging1@2x~ipad.im4p
+08:35:36.053    <Info> Downloading Firmware/all_flash/batteryfull@2x~ipad.im4p
+08:35:36.181    <Info> Downloading Firmware/all_flash/batterylow0@2x~ipad.im4p
+08:35:36.301    <Info> Downloading Firmware/all_flash/batterylow1@2x~ipad.im4p
+08:35:36.414    <Info> Downloading Firmware/all_flash/glyphplugin@2x~ipad-lightning.im4p
+08:35:38.230    <Info> Checking IPSW for required components...
+08:35:38.239    <Info> All required components found in IPSW
+08:35:38.241    <Info> Checking hashes...
+08:35:38.241    <Info> Getting ApNonce in DFU mode... b5 66 ed b8 2b 6d 8f 79 b4 c1 04 ec dc e1 ed d7 28 c8 76 9a 1d 6a b3 1a 3c 7c be e4 b3 e6 91 34
+08:35:38.241    <Info> Checking for local shsh
+08:35:38.241    <Info> Trying to fetch new SHSH blob
+08:35:38.241    <Info> Getting SepNonce in dfu mode... 4b 7d de 89 25 f9 c0 56 70 85 25 fc 79 ba 89 2c 20 59 39 41
+08:35:39.786    <Info> Received SHSH blobs
+08:35:39.787    <Info> Using latest SHSH
+08:35:39.792    <Info> Extracting iBSS.ipad7b.RELEASE.im4p (Firmware/dfu/iBSS.ipad7b.RELEASE.im4p)...
+08:35:39.796    <Info> Personalizing IMG4 component iBSS...
+08:35:39.796    <Info> Sending iBSS (570708 bytes)...
+08:35:44.107    <Info> Nonce: b5 66 ed b8 2b 6d 8f 79 b4 c1 04 ec dc e1 ed d7 28 c8 76 9a 1d 6a b3 1a 3c 7c be e4 b3 e6 91 34
+08:35:44.108    <Info> Checking boot-nonce hash
+manifest BNCH: b566edb82b6d8f79b4c104ecdce1edd728c8769a1d6ab31a3c7cbee4b3e69134
+ApNonce: b566edb82b6d8f79b4c104ecdce1edd728c8769a1d6ab31a3c7cbee4b3e69134
+BNCH: b566edb82b6d8f79b4c104ecdce1edd728c8769a1d6ab31a3c7cbee4b3e69134
+08:35:44.108    <Info> Checking ECID
+08:35:44.108    <Info> Device ECID: 000c391e21da0026
+08:35:44.109    <Info> IM4M ECID: 000c391e21da0026
+08:35:44.113    <Info> INFO: device serial number is GG8XW20WJF8M
+08:35:44.113    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:35:44.122    <Info> SEP im4p saved to 'image4/3440501300264998-iPad7,5-17.7.11-SEP.im4p'
+08:35:44.122    <Info> Trying to fetch new SHSH blob
+08:35:44.123    <Info> Getting SepNonce in recovery mode... 4b 7d de 89 25 f9 c0 56 70 85 25 fc 79 ba 89 2c 20 59 39 41
+08:35:44.546    <Info> Received SHSH blobs
+08:35:44.547    <Info> Personalizing IMG4 component RestoreSEP...
+08:35:44.548    <Info> Personalizing IMG4 component SEPTethered...
+08:35:44.552    <Info> SEP img4 saved to 'image4/3440501300264998-iPad7,5-signed-SEP.img4'
+08:35:44.552    <Info> Recovery Mode Environment:
+08:35:44.555    <Info> iBoot build-version=iBoot-10151.140.19
+08:35:44.557    <Info> iBoot build-style=RELEASE
+08:35:44.569    <Info> Sending RestoreLogo...
+08:35:44.569    <Info> Extracting applelogo@2x~ipad.im4p (Firmware/all_flash/applelogo@2x~ipad.im4p)...
+08:35:44.571    <Info> Personalizing IMG4 component RestoreLogo...
+08:35:44.571    <Info> Sending RestoreLogo (28458 bytes)...
+08:35:44.617    <Info> Extracting AppleAVE2FW_H9.im4p (Firmware/ave/AppleAVE2FW_H9.im4p)...
+08:35:44.624    <Info> Personalizing IMG4 component AVE...
+08:35:44.625    <Info> Sending AVE (1101093 bytes)...
+08:35:44.738    <Info> Extracting 044-75545-038.dmg.trustcache (Firmware/044-75545-038.dmg.trustcache)...
+08:35:44.741    <Info> Personalizing IMG4 component RestoreTrustCache...
+08:35:44.741    <Info> Sending RestoreTrustCache (12788 bytes)...
+08:35:44.752    <Info> ramdisk-size=0x20000000
+08:35:44.752    <Info> Extracting 044-75545-038.dmg (044-75545-038.dmg)...
+08:35:45.084    <Info> Personalizing IMG4 component RestoreRamDisk...
+08:35:45.124    <Info> Sending RestoreRamDisk (184556272 bytes)...
+08:35:58.772    <Info> Extracting DeviceTree.j71bap.im4p (Firmware/all_flash/DeviceTree.j71bap.im4p)...
+08:35:58.776    <Info> Personalizing IMG4 component RestoreDeviceTree...
+08:35:58.776    <Info> Sending RestoreDeviceTree (39917 bytes)...
+08:35:58.798    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:35:58.803    <Info> Personalizing IMG4 component RestoreSEP...
+08:35:58.804    <Info> Sending RestoreSEP (1368930 bytes)...
+08:35:58.858    <Info> Extracting kernelcache.release.ipad7b (kernelcache.release.ipad7b)...
+08:35:58.906    <Info> Personalizing IMG4 component RestoreKernelCache...
+08:35:58.909    <Info> Sending RestoreKernelCache (15911847 bytes)...
+08:36:02.516    <Info> Waiting for device to enter restore mode...
+img4 manifest hash: 9e2ff5151ccd36f41cd8dd18247d4d0017e17e87bf6683a4c68b085b5ccf08d59e6f3b43abe27391d481545356b8b25d
+08:36:02.569    <Info> Device entered yolo (checkra1n) DFU mode.
+08:36:02.606    <Info> Sending Pongo data (131590 bytes)...
+08:36:03.697    <Info> Waiting for device to disconnect...
+08:36:03.697    <Info> Waiting for device to enter Pongo mode...
+08:36:03.805    <Info> Found PongoOS device
+08:36:03.817    <Info> Sending sep_racer (1211568 bytes)
+08:36:03.849    <Info> Loading module
+08:36:03.939    <Info> Sending ApImg4Ticket (6853 bytes)
+08:36:03.940    <Info> Loading ApImg4Ticket
+08:36:03.944    <Info> Sending ApImg4TicketHash (48 bytes)
+08:36:03.945    <Info> Loading ApImg4TicketHash
+08:36:03.950    <Info> Sending RestoreSEP (1368930 bytes)
+08:36:03.987    <Info> Loading RestoreSEP
+08:36:04.002    <Info> Sending SEP (1362062 bytes)
+08:36:04.039    <Info> Loading SEP
+08:36:04.062    <Info> Loading sep_flag
+08:36:04.070    <Info> Exploiting with SEPROM exploit
+08:36:04.071    <Info> Successfully obtained SEPROM code execution?
+08:36:14.421    <Info> Sending uploadKpfModule (92296 bytes)
+08:36:14.426    <Info> Loading module
+08:36:14.512    <Info> Loading setupKpfModule
+08:36:14.523    <Info> Sending overlay.dmg[iPhoneOS] (1048576 bytes)
+08:36:14.549    <Info> Loading overlay
+08:36:14.562    <Info> Loading kpf
+08:36:14.996    <Info> Booting
+08:36:14.996    <Info> Waiting for device to disconnect...
+08:36:15.120    <Info> Waiting for device to enter restore mode...
+08:36:35.983    <Info> About to restore device... 
+08:36:35.997    <Info> Connecting now...
+08:36:36.001    <Info> Connected to com.apple.mobile.restored, version 15
+08:36:36.001    <Info> Device ffffffffffffffffffffffffffffffff000005fc has successfully entered restore mode
+08:36:36.003    <Info> Hardware Information:
+08:36:36.003    <Info> BoardID: 24
+08:36:36.003    <Info> ChipID: 32784
+08:36:36.003    <Info> UniqueChipID: 3440501300264998
+08:36:36.003    <Info> ProductionMode: true
+08:36:36.006    <Info> Starting Reverse Proxy
+08:36:36.322 <Verbose> ReverseProxy[Ctrl]: (status=1) Ready
+08:36:36.322    <Info> Device will not use nonce slots.
+08:36:36.338 <Verbose> Checkpoint completed id: 0x655 (is_host_compatible) result=0
+08:36:36.338 <Verbose> Checkpoint started   id: 0x604 (set_weight_from_options)
+08:36:36.338 <Verbose> Checkpoint completed id: 0x604 (set_weight_from_options) result=0
+08:36:36.339 <Verbose> Checkpoint started   id: 0x68F (libauthinstall_callback)
+08:36:36.339 <Verbose> Checkpoint completed id: 0x68F (libauthinstall_callback) result=0
+08:36:36.339 <Verbose> Checkpoint started   id: 0x608 (device_has_hoover)
+08:36:36.340 <Verbose> Checkpoint completed id: 0x608 (device_has_hoover) result=0
+08:36:36.340 <Verbose> Checkpoint started   id: 0x60B (update_ticket)
+08:36:36.341    <Info> About to send RootTicket...
+08:36:36.341    <Info> Sending RootTicket now...
+08:36:36.341    <Info> Done sending RootTicket
+08:36:36.342 <Verbose> Checkpoint completed id: 0x60B (update_ticket) result=0
+08:36:36.343 <Verbose> Checkpoint started   id: 0x60D (wait_for_storage)
+08:36:36.343    <Info> Waiting for NAND (28)
+08:36:36.349 <Verbose> Checkpoint completed id: 0x60D (wait_for_storage) result=0
+08:36:36.349 <Verbose> Checkpoint started   id: 0x60E (update_NAND_firmware)
+08:36:36.349    <Info> Updating NAND Firmware (58)
+08:36:45.095 <Verbose> Checkpoint completed id: 0x60E (update_NAND_firmware) result=0
+08:36:45.096 <Verbose> Checkpoint started   id: 0x60F (clear_remap_variable)
+08:36:45.096 <Verbose> Checkpoint completed id: 0x60F (clear_remap_variable) result=0
+08:36:45.096 <Verbose> Checkpoint started   id: 0x65C (print_nvram_variables)
+08:36:45.097 <Verbose> Checkpoint completed id: 0x65C (print_nvram_variables) result=0
+08:36:45.097 <Verbose> Checkpoint started   id: 0x610 (asp_nand_set_writable)
+08:36:45.097 <Verbose> Checkpoint completed id: 0x610 (asp_nand_set_writable) result=0
+08:36:45.097 <Verbose> Checkpoint started   id: 0x613 (find_filesystem_partitions)
+08:36:45.130 <Verbose> Checkpoint completed id: 0x613 (find_filesystem_partitions) result=0
+08:36:45.130 <Verbose> Checkpoint started   id: 0x67E (verify_storage_for_update)
+08:36:45.130 <Verbose> Checkpoint completed id: 0x67E (verify_storage_for_update) result=0
+08:36:45.131 <Verbose> Checkpoint started   id: 0x609 (load_sep_os)
+08:36:45.131    <Info> About to send NORData...
+08:36:45.131    <Info> Found firmware path Firmware/all_flash
+08:36:45.135    <Info> Getting firmware manifest from build identity
+08:36:45.135    <Info> Extracting LLB.ipad7b.RELEASE.im4p (Firmware/all_flash/LLB.ipad7b.RELEASE.im4p)...
+08:36:45.140    <Info> Using cached LLB data
+08:36:45.140    <Info> Personalizing IMG4 component LLB...
+08:36:45.140    <Info> Extracting applelogo@2x~ipad.im4p (Firmware/all_flash/applelogo@2x~ipad.im4p)...
+08:36:45.141    <Info> using cached AppleLogo data
+08:36:45.141    <Info> Personalizing IMG4 component AppleLogo...
+08:36:45.141    <Info> Extracting batterycharging0@2x~ipad.im4p (Firmware/all_flash/batterycharging0@2x~ipad.im4p)...
+08:36:45.141    <Info> using cached BatteryCharging0 data
+08:36:45.141    <Info> Personalizing IMG4 component BatteryCharging0...
+08:36:45.142    <Info> Extracting batterycharging1@2x~ipad.im4p (Firmware/all_flash/batterycharging1@2x~ipad.im4p)...
+08:36:45.142    <Info> using cached BatteryCharging1 data
+08:36:45.142    <Info> Personalizing IMG4 component BatteryCharging1...
+08:36:45.142    <Info> Extracting batteryfull@2x~ipad.im4p (Firmware/all_flash/batteryfull@2x~ipad.im4p)...
+08:36:45.143    <Info> using cached BatteryFull data
+08:36:45.143    <Info> Personalizing IMG4 component BatteryFull...
+08:36:45.143    <Info> Extracting batterylow0@2x~ipad.im4p (Firmware/all_flash/batterylow0@2x~ipad.im4p)...
+08:36:45.144    <Info> using cached BatteryLow0 data
+08:36:45.144    <Info> Personalizing IMG4 component BatteryLow0...
+08:36:45.144    <Info> Extracting batterylow1@2x~ipad.im4p (Firmware/all_flash/batterylow1@2x~ipad.im4p)...
+08:36:45.144    <Info> using cached BatteryLow1 data
+08:36:45.144    <Info> Personalizing IMG4 component BatteryLow1...
+08:36:45.144    <Info> Extracting glyphplugin@2x~ipad-lightning.im4p (Firmware/all_flash/glyphplugin@2x~ipad-lightning.im4p)...
+08:36:45.145    <Info> using cached BatteryPlugin data
+08:36:45.145    <Info> Personalizing IMG4 component BatteryPlugin...
+08:36:45.145    <Info> Extracting DeviceTree.j71bap.im4p (Firmware/all_flash/DeviceTree.j71bap.im4p)...
+08:36:45.146    <Info> Personalizing IMG4 component DeviceTree...
+08:36:45.146    <Info> Extracting recoverymode@2x~ipad-lightning.im4p (Firmware/all_flash/recoverymode@2x~ipad-lightning.im4p)...
+08:36:45.149    <Info> using cached RecoveryMode data
+08:36:45.150    <Info> Personalizing IMG4 component RecoveryMode...
+08:36:45.151    <Info> Extracting iBoot.ipad7b.RELEASE.im4p (Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p)...
+08:36:45.153    <Info> using cached iBoot data
+08:36:45.153    <Info> Personalizing IMG4 component iBoot...
+08:36:45.153    <Info> Extracting iBoot.ipad7b.RELEASE.im4p (Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p)...
+08:36:45.154    <Info> Personalizing IMG4 component iBootTethered2...
+08:36:45.156    <Info> iBoot img4 saved to 'image4/3440501300264998-iPad7,5-17.7.11-iBoot.img4'
+08:36:45.156    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:36:45.158    <Info> Personalizing IMG4 component RestoreSEP...
+08:36:45.159    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:36:45.159    <Info> Using cached SEP data
+08:36:45.160    <Info> Personalizing IMG4 component SEP...
+08:36:45.160    <Info> Sending NORData now...
+08:36:45.401    <Info> Done sending NORData
+08:36:46.876 <Verbose> Checkpoint completed id: 0x609 (load_sep_os) result=0
+08:36:46.877 <Verbose> Checkpoint started   id: 0x693 (preload_keys_for_fsck)
+08:36:46.877 <Verbose> Checkpoint completed id: 0x693 (preload_keys_for_fsck) result=0
+08:36:46.877 <Verbose> Checkpoint started   id: 0x665 (fsck_filesystems)
+08:36:46.879 <Verbose> Checkpoint completed id: 0x665 (fsck_filesystems) result=0
+08:36:46.879 <Verbose> Checkpoint started   id: 0x614 (mount_system_partition)
+08:36:47.594 <Verbose> Checkpoint completed id: 0x614 (mount_system_partition) result=0
+08:36:47.594 <Verbose> Checkpoint started   id: 0x696 (fix_cache_delete)
+08:36:47.594 <Verbose> Checkpoint completed id: 0x696 (fix_cache_delete) result=0
+08:36:47.595 <Verbose> Checkpoint started   id: 0x65D (delete_mobilebackups)
+08:36:47.595 <Verbose> Checkpoint completed id: 0x65D (delete_mobilebackups) result=0
+08:36:47.595 <Verbose> Checkpoint started   id: 0x6C1 (clean_update_volume)
+08:36:47.595 <Verbose> Checkpoint completed id: 0x6C1 (clean_update_volume) result=0
+08:36:47.596 <Verbose> Checkpoint started   id: 0x6A3 (space_checks)
+08:36:47.596 <Verbose> Checkpoint completed id: 0x6A3 (space_checks) result=0
+08:36:47.596 <Verbose> Checkpoint started   id: 0x69F (clear_mobile_gestalt_cache)
+08:36:47.597 <Verbose> Checkpoint completed id: 0x69F (clear_mobile_gestalt_cache) result=0
+08:36:47.597 <Verbose> Checkpoint started   id: 0x654 (read_previous_os_build_version)
+08:36:47.682 <Verbose> Checkpoint completed id: 0x654 (read_previous_os_build_version) result=0
+08:36:47.682 <Verbose> Checkpoint started   id: 0x697 (downgrade_check)
+08:36:47.682 <Verbose> Checkpoint completed id: 0x697 (downgrade_check) result=0
+08:36:47.683 <Verbose> Checkpoint started   id: 0x615 (copy_hardware_info)
+08:36:47.683 <Verbose> Checkpoint completed id: 0x615 (copy_hardware_info) result=0
+08:36:47.683 <Verbose> Checkpoint started   id: 0x616 (fdr_create)
+08:36:48.195    <Info> About to send FDR Trust data...
+08:36:48.195    <Info> Sending FDR Trust data now...
+08:36:48.195    <Info> Done sending FDR Trust Data
+08:36:48.242 <Verbose> Checkpoint completed id: 0x616 (fdr_create) result=0
+08:36:48.243 <Verbose> Checkpoint started   id: 0x617 (fdr_save_data)
+08:36:48.280 <Verbose> Checkpoint completed id: 0x617 (fdr_save_data) result=0
+08:36:48.280 <Verbose> Checkpoint started   id: 0x618 (store_baseband_migration)
+08:36:48.281 <Verbose> Checkpoint completed id: 0x618 (store_baseband_migration) result=0
+08:36:48.281 <Verbose> Checkpoint started   id: 0x619 (check_for_restore_log)
+08:36:48.281    <Info> Checking for uncollected logs (44)
+08:36:48.282 <Verbose> Checkpoint completed id: 0x619 (check_for_restore_log) result=0
+08:36:48.282 <Verbose> Checkpoint started   id: 0x61A (check_for_ota_logs)
+08:36:48.282 <Verbose> Checkpoint completed id: 0x61A (check_for_ota_logs) result=0
+08:36:48.283 <Verbose> Checkpoint started   id: 0x61B (submit_update_stats)
+08:36:48.283 <Verbose> Checkpoint completed id: 0x61B (submit_update_stats) result=0
+08:36:48.283 <Verbose> Checkpoint started   id: 0x661 (read_persistent_files)
+08:36:48.285 <Verbose> Checkpoint completed id: 0x661 (read_persistent_files) result=0
+08:36:48.286 <Verbose> Checkpoint started   id: 0x61D (unmount_unconditionally)
+08:36:48.286    <Info> Unmounting filesystems (29)
+08:36:48.289 <Verbose> Checkpoint completed id: 0x61D (unmount_unconditionally) result=0
+08:36:48.289 <Verbose> Checkpoint started   id: 0x64E (clean_nand)
+08:36:49.002 <Verbose> Checkpoint completed id: 0x64E (clean_nand) result=0
+08:36:49.002 <Verbose> Checkpoint started   id: 0x61F (format_effaceable_storage)
+08:36:49.192 <Verbose> Checkpoint completed id: 0x61F (format_effaceable_storage) result=0
+08:36:49.193 <Verbose> Checkpoint started   id: 0x68A (format_ean_storage)
+08:36:49.194 <Verbose> Checkpoint completed id: 0x68A (format_ean_storage) result=0
+08:36:49.195 <Verbose> Checkpoint started   id: 0x621 (create_filesystem_partitions)
+08:36:49.196    <Info> Creating partition map (11)
+08:36:49.349 <Verbose> Checkpoint completed id: 0x621 (create_filesystem_partitions) result=0
+08:36:49.350 <Verbose> Checkpoint started   id: 0x677 (perform_main_os_prepare)
+08:36:49.353 <Verbose> Checkpoint started   id: 0x660 (update_partitions_for_apfs)
+08:36:49.356 <Verbose> Checkpoint completed id: 0x660 (update_partitions_for_apfs) result=0
+08:36:49.357 <Verbose> Checkpoint started   id: 0x622 (reload_filesystem_partitions)
+08:36:49.364 <Verbose> Checkpoint completed id: 0x622 (reload_filesystem_partitions) result=0
+08:36:49.365 <Verbose> Checkpoint started   id: 0x160D (delete_recovery_partition)
+08:36:49.366 <Verbose> Checkpoint completed id: 0x160D (delete_recovery_partition) result=0
+08:36:49.367 <Verbose> Checkpoint started   id: 0x658 (format_media)
+08:36:49.376    <Info> Creating filesystem (12)
+08:36:50.420 <Verbose> Checkpoint completed id: 0x658 (format_media) result=0
+08:36:50.420 <Verbose> Checkpoint started   id: 0x659 (find_volumes_after_format)
+08:36:50.423 <Verbose> Checkpoint completed id: 0x659 (find_volumes_after_format) result=0
+08:36:50.423 <Verbose> Checkpoint started   id: 0x6B3 (prepare_for_asr)
+08:36:50.689 <Verbose> Checkpoint completed id: 0x6B3 (prepare_for_asr) result=0
+08:36:50.689 <Verbose> Checkpoint started   id: 0x65B (restore_asr)
+08:36:50.689 <Verbose> Checkpoint completed id: 0x65B (restore_asr) result=0
+08:36:50.689 <Verbose> Checkpoint started   id: 0x65A (baseband_migration_data)
+08:36:50.690 <Verbose> Checkpoint completed id: 0x65A (baseband_migration_data) result=0
+08:36:50.691 <Verbose> Checkpoint started   id: 0x675 (init_gigalocker)
+08:36:50.769    <Info> About to send filesystem...
+08:36:50.772 <Verbose> Connecting to ASR on port 12346
+08:36:50.857    <Info> Connected to ASR
+08:36:50.857    <Info> Validating the filesystem
+08:36:51.164 <Verbose> Checkpoint completed id: 0x675 (init_gigalocker) result=0
+08:36:51.165 <Verbose> Checkpoint started   id: 0x68C (init_permanent_update_volume)
+08:36:51.317 <Verbose> Checkpoint completed id: 0x68C (init_permanent_update_volume) result=0
+08:36:51.317 <Verbose> Checkpoint started   id: 0x626 (mount_filesystem)
+08:36:51.318    <Info> Mounting filesystems (16)
+08:36:51.390    <Info> Mounting filesystems (16)
+08:36:51.604 <Verbose> Checkpoint completed id: 0x626 (mount_filesystem) result=0
+08:36:51.604 <Verbose> Checkpoint started   id: 0x662 (write_persistent_files)
+08:36:51.605 <Verbose> Checkpoint completed id: 0x662 (write_persistent_files) result=0
+08:36:51.605 <Verbose> Checkpoint completed id: 0x677 (perform_main_os_prepare) result=0
+08:36:51.605 <Verbose> Checkpoint started   id: 0x67A (perform_short_prepare)
+08:36:51.605 <Verbose> Checkpoint completed id: 0x67A (perform_short_prepare) result=0
+08:36:51.605 <Verbose> Checkpoint started   id: 0x67B (perform_restore_installing)
+08:36:51.606 <Verbose> Checkpoint started   id: 0x627 (fdr_restore_saved_data)
+08:36:51.612 <Verbose> Checkpoint completed id: 0x627 (fdr_restore_saved_data) result=0
+08:36:51.613 <Verbose> Checkpoint started   id: 0x69A (update_device_firmware_pre_fdr)
+08:36:51.617 <Verbose> Checkpoint completed id: 0x69A (update_device_firmware_pre_fdr) result=0
+08:36:51.617 <Verbose> Checkpoint started   id: 0x69B (fdr_prepare)
+08:36:51.786 <Verbose> Checkpoint completed id: 0x69B (fdr_prepare) result=0
+08:36:51.786 <Verbose> Checkpoint started   id: 0x652 (clear_fips_data_file)
+08:36:51.786 <Verbose> Checkpoint completed id: 0x652 (clear_fips_data_file) result=0
+08:36:51.786 <Verbose> Checkpoint started   id: 0x634 (fdr_recover)
+08:36:51.803 <Verbose> Checkpoint completed id: 0x634 (fdr_recover) result=0
+08:36:51.803 <Verbose> Checkpoint started   id: 0x67D (fdr_auto_challenge_claim)
+08:36:51.803 <Verbose> Checkpoint completed id: 0x67D (fdr_auto_challenge_claim) result=0
+08:36:51.804 <Verbose> Checkpoint started   id: 0x635 (update_device_firmware)
+08:36:51.808 <Verbose> Checkpoint started   id: 0x1300 (update_iBoot)
+08:36:51.808    <Info> Unknown operation (80)
+08:36:51.808    <Info> Sending IsiBootEANFirmware image list
+08:36:51.809    <Info> Sending IsiBootNonEssentialFirmware image list
+08:36:51.812    <Info> Flashing firmware (18)
+08:36:52.143    <Info> Filesystem validated
+08:36:52.143    <Info> Sending filesystem now...
+08:36:52.486 <Verbose> Checkpoint completed id: 0x1300 (update_iBoot) result=0
+08:36:52.487 <Verbose> Checkpoint started   id: 0x1312 (update_ean)
+08:36:52.487    <Info> Unknown operation (80)
+08:36:52.487    <Info> Sending IsEarlyAccessFirmware image list
+08:36:52.491    <Info> Sending IsiBootEANFirmware image list
+08:36:52.492    <Info> Sending IsiBootNonEssentialFirmware image list
+08:36:52.494 <Verbose> Checkpoint completed id: 0x1312 (update_ean) result=0
+08:36:52.494 <Verbose> Checkpoint started   id: 0x130A (install_fud)
+08:36:52.495    <Info> Requesting FUD data (36)
+08:36:52.495    <Info> Found IsFUDFirmware component AOP
+08:36:52.495    <Info> Found IsFUDFirmware component AVE
+08:36:52.495    <Info> Found IsFUDFirmware component Ap,SystemVolumeCanonicalMetadata
+08:36:52.495    <Info> Found IsFUDFirmware component RestoreTrustCache
+08:36:52.495    <Info> Found IsFUDFirmware component StaticTrustCache
+08:36:52.495    <Info> Found IsFUDFirmware component SystemVolume
+08:36:52.495    <Info> Sending IsFUDFirmware image list
+08:36:52.498    <Info> Extracting aopfw-ipad7baop.RELEASE.im4p (Firmware/AOP/aopfw-ipad7baop.RELEASE.im4p)...
+08:36:52.509    <Info> Personalizing IMG4 component AOP...
+08:36:52.510    <Info> Sending IsFUDFirmware for AOP...
+08:36:52.557    <Info> Extracting AppleAVE2FW_H9.im4p (Firmware/ave/AppleAVE2FW_H9.im4p)...
+08:36:52.561    <Info> Personalizing IMG4 component AVE...
+08:36:52.562    <Info> Sending IsFUDFirmware for AVE...
+08:36:52.613    <Info> Extracting 044-75473-038.dmg.mtree (Firmware/044-75473-038.dmg.mtree)...
+08:36:52.715    <Info> Personalizing IMG4 component Ap,SystemVolumeCanonicalMetadata...
+08:36:52.729    <Info> Sending IsFUDFirmware for Ap,SystemVolumeCanonicalMetadata...
+08:36:54.516    <Info> Restoring image (13)
+08:36:54.516    <Info> Requesting FUD data (36)
+08:36:54.516    <Info> Extracting 044-75545-038.dmg.trustcache (Firmware/044-75545-038.dmg.trustcache)...
+08:36:54.517    <Info> Personalizing IMG4 component RestoreTrustCache...
+08:36:54.517    <Info> Sending IsFUDFirmware for RestoreTrustCache...
+08:36:54.520    <Info> Extracting 044-75473-038.dmg.trustcache (Firmware/044-75473-038.dmg.trustcache)...
+08:36:54.521    <Info> Personalizing IMG4 component StaticTrustCache...
+08:36:54.521    <Info> Sending IsFUDFirmware for StaticTrustCache...
+08:36:54.528    <Info> Extracting 044-75473-038.dmg.root_hash (Firmware/044-75473-038.dmg.root_hash)...
+08:36:54.528    <Info> Personalizing IMG4 component SystemVolume...
+08:36:54.528    <Info> Sending IsFUDFirmware for SystemVolume...
+08:36:54.533 <Verbose> Checkpoint completed id: 0x130A (install_fud) result=0
+08:36:54.533 <Verbose> Checkpoint started   id: 0x1301 (update_gas_gauge)
+08:36:54.533    <Info> Updating gas gauge software (47)
+08:36:54.534 <Verbose> Checkpoint completed id: 0x1301 (update_gas_gauge) result=0
+08:36:54.535 <Verbose> Checkpoint started   id: 0x1302 (update_ir_mcu)
+08:36:54.536    <Info> Updating gas gauge software (47)
+08:36:54.537 <Verbose> Checkpoint completed id: 0x1302 (update_ir_mcu) result=0
+08:36:54.537 <Verbose> Checkpoint started   id: 0x1304 (update_stockholm)
+08:36:54.538    <Info> Updating Stockholm (55)
+08:36:54.690    <Info> Restoring image (13)
+08:37:02.374    <Info> Updating Stockholm (55)
+08:37:02.375 <Verbose> Checkpoint completed id: 0x1304 (update_stockholm) result=0
+08:37:02.377 <Verbose> Checkpoint started   id: 0x130C (update_aht)
+08:37:02.382    <Info> Requesting FUD data (36)
+08:37:02.383    <Info> Found IsFUDFirmware component AOP
+08:37:02.383    <Info> Found IsFUDFirmware component AVE
+08:37:02.383    <Info> Found IsFUDFirmware component Ap,SystemVolumeCanonicalMetadata
+08:37:02.383    <Info> Found IsFUDFirmware component RestoreTrustCache
+08:37:02.383    <Info> Found IsFUDFirmware component StaticTrustCache
+08:37:02.383    <Info> Found IsFUDFirmware component SystemVolume
+08:37:02.383    <Info> Sending IsFUDFirmware image list
+08:37:02.396    <Info> Extracting 044-75473-038.dmg.mtree (Firmware/044-75473-038.dmg.mtree)...
+08:37:02.444    <Info> Personalizing IMG4 component Ap,SystemVolumeCanonicalMetadata...
+08:37:02.448    <Info> Sending IsFUDFirmware for Ap,SystemVolumeCanonicalMetadata...
+08:37:04.270    <Info> Restoring image (13)
+08:37:04.270    <Info> Requesting FUD data (36)
+08:37:04.271    <Info> Extracting 044-75545-038.dmg.trustcache (Firmware/044-75545-038.dmg.trustcache)...
+08:37:04.272    <Info> Personalizing IMG4 component RestoreTrustCache...
+08:37:04.272    <Info> Sending IsFUDFirmware for RestoreTrustCache...
+08:37:04.276    <Info> Extracting 044-75473-038.dmg.root_hash (Firmware/044-75473-038.dmg.root_hash)...
+08:37:04.277    <Info> Personalizing IMG4 component SystemVolume...
+08:37:04.277    <Info> Sending IsFUDFirmware for SystemVolume...
+08:37:04.279 <Verbose> Checkpoint completed id: 0x130C (update_aht) result=0
+08:37:04.280 <Verbose> Checkpoint started   id: 0x1306 (update_tcon)
+08:37:04.280 <Verbose> Checkpoint completed id: 0x1306 (update_tcon) result=0
+08:37:04.280 <Verbose> Checkpoint started   id: 0x1307 (update_orion)
+08:37:04.281 <Verbose> Checkpoint completed id: 0x1307 (update_orion) result=0
+08:37:04.281 <Verbose> Checkpoint started   id: 0x1308 (update_madea)
+08:37:04.281 <Verbose> Checkpoint completed id: 0x1308 (update_madea) result=0
+08:37:04.281 <Verbose> Checkpoint started   id: 0x130E (update_peppy)
+08:37:04.283 <Verbose> Checkpoint completed id: 0x130E (update_peppy) result=0
+08:37:04.283 <Verbose> Checkpoint started   id: 0x130F (update_nitrogen)
+08:37:04.284 <Verbose> Checkpoint completed id: 0x130F (update_nitrogen) result=0
+08:37:04.284 <Verbose> Checkpoint started   id: 0x130B (update_usbc)
+08:37:04.286 <Verbose> Checkpoint completed id: 0x130B (update_usbc) result=0
+08:37:04.287 <Verbose> Checkpoint started   id: 0x1303 (update_baseband_legacy)
+08:37:04.288 <Verbose> Checkpoint completed id: 0x1303 (update_baseband_legacy) result=0
+08:37:04.288 <Verbose> Checkpoint started   id: 0x1310 (update_rose)
+08:37:04.290 <Verbose> Checkpoint completed id: 0x1310 (update_rose) result=0
+08:37:04.290 <Verbose> Checkpoint started   id: 0x131F (update_canary)
+08:37:04.291 <Verbose> Checkpoint completed id: 0x131F (update_canary) result=0
+08:37:04.291 <Verbose> Checkpoint started   id: 0x1309 (update_se)
+08:37:04.291    <Info> Updating SE Firmware (59)
+08:37:05.605    <Info> About to send BuildIdentity Dict...
+08:37:05.606    <Info> Sending BuildIdentityDict now...
+08:37:05.607    <Info> Done sending BuildIdentityDict
+08:37:05.617    <Info> About to send SE,UpdatePayload...
+08:37:05.617    <Info> Sending SE,UpdatePayload now (42540669 bytes)
+08:37:08.570    <Info> Done sending SE,UpdatePayload
+08:37:08.586    <Info> Restoring image (13)
+08:37:08.606    <Info> Sending SE TSS request...
+08:37:09.060    <Info> Received SE,Ticket
+08:37:09.060    <Info> Extracting Stockholm4.RELEASE.sefw (Firmware/SE/Stockholm4.RELEASE.sefw)...
+08:37:09.105    <Info> Sending FirmwareResponse data now...
+08:37:11.949    <Info> Done sending FirmwareUpdater data
+08:37:13.670 <Verbose> Checkpoint completed id: 0x1309 (update_se) result=0
+08:37:13.674 <Verbose> Checkpoint started   id: 0x130D (update_savage)
+08:37:13.686 <Verbose> Checkpoint completed id: 0x130D (update_savage) result=0
+08:37:13.686 <Verbose> Checkpoint started   id: 0x1311 (update_veridian)
+08:37:13.687    <Info> Updating Veridian (66)
+08:37:13.688 <Verbose> Checkpoint completed id: 0x1311 (update_veridian) result=0
+08:37:13.690 <Verbose> Checkpoint started   id: 0x1316 (update_appletcon)
+08:37:13.690    <Info> Unknown operation (79)
+08:37:13.691 <Verbose> Checkpoint completed id: 0x1316 (update_appletcon) result=0
+08:37:13.693 <Verbose> Checkpoint started   id: 0x131D (update_ace3)
+08:37:13.693    <Info> Unknown operation (85)
+08:37:13.705 <Verbose> Checkpoint completed id: 0x131D (update_ace3) result=0
+08:37:13.707 <Verbose> Checkpoint started   id: 0x1318 (update_usbcretimer)
+08:37:13.707    <Info> Unknown operation (82)
+08:37:13.708 <Verbose> Checkpoint completed id: 0x1318 (update_usbcretimer) result=0
+08:37:13.710 <Verbose> Checkpoint started   id: 0x1320 (update_manta_mcu)
+08:37:13.710    <Info> Unknown operation (88)
+08:37:13.712 <Verbose> Checkpoint completed id: 0x1320 (update_manta_mcu) result=0
+08:37:13.714 <Verbose> Checkpoint started   id: 0x1322 (update_vinyl)
+08:37:13.716 <Verbose> Checkpoint completed id: 0x1322 (update_vinyl) result=0
+08:37:13.718 <Verbose> Checkpoint started   id: 0x1323 (update_appletconnuarp)
+08:37:13.718 <Verbose> Checkpoint completed id: 0x1323 (update_appletconnuarp) result=0
+08:37:13.721 <Verbose> Checkpoint completed id: 0x635 (update_device_firmware) result=0
+08:37:13.721 <Verbose> Checkpoint started   id: 0x63C (verify_fdr_data)
+08:37:13.754 <Verbose> Checkpoint completed id: 0x63C (verify_fdr_data) result=0
+08:37:13.754 <Verbose> Checkpoint started   id: 0x668 (update_firmware_post_sealing)
+08:37:13.756 <Verbose> Checkpoint started   id: 0x1501 (update_savage_postseal)
+08:37:13.757 <Verbose> Checkpoint completed id: 0x1501 (update_savage_postseal) result=0
+08:37:13.757 <Verbose> Checkpoint started   id: 0x1500 (decompress_pearl_data)
+08:37:13.757 <Verbose> Checkpoint completed id: 0x1500 (decompress_pearl_data) result=0
+08:37:13.758 <Verbose> Checkpoint started   id: 0x1503 (update_rose_postseal)
+08:37:13.759 <Verbose> Checkpoint completed id: 0x1503 (update_rose_postseal) result=0
+08:37:13.760 <Verbose> Checkpoint started   id: 0x131A (stage_fdr_ean)
+08:37:13.760 <Verbose> Checkpoint completed id: 0x131A (stage_fdr_ean) result=0
+08:37:13.760 <Verbose> Checkpoint started   id: 0x1319 (ensure_fdr_ean)
+08:37:13.761 <Verbose> Checkpoint completed id: 0x1319 (ensure_fdr_ean) result=0
+08:37:13.761 <Verbose> Checkpoint started   id: 0x1504 (update_fdr_ean)
+08:37:13.761    <Info> Requesting EAN Data (74)
+08:37:13.762 <Verbose> Checkpoint completed id: 0x1504 (update_fdr_ean) result=0
+08:37:13.762 <Verbose> Checkpoint started   id: 0x1314 (update_fillmore)
+08:37:13.762 <Verbose> Checkpoint completed id: 0x1314 (update_fillmore) result=0
+08:37:13.763 <Verbose> Checkpoint completed id: 0x668 (update_firmware_post_sealing) result=0
+08:37:13.763 <Verbose> Checkpoint started   id: 0x63D (fdr_verify_sealed_manifest)
+08:37:13.765 <Verbose> Checkpoint completed id: 0x63D (fdr_verify_sealed_manifest) result=0
+08:37:13.766 <Verbose> Checkpoint started   id: 0x66F (commit_sep_os)
+08:37:14.689 <Verbose> Checkpoint completed id: 0x66F (commit_sep_os) result=0
+08:37:14.690 <Verbose> Checkpoint started   id: 0x6B4 (await_asr_and_retry)
+08:37:15.209    <Info> Restoring image (13)
+08:39:20.736    <Info> Done sending filesystem
+08:39:20.969    <Info> Verifying restore (14)
+08:39:30.221    <Info> Unmounting filesystems (29)
+08:39:30.223    <Info> Unmounting filesystems (29)
+08:39:30.227    <Info> Unmounting filesystems (29)
+08:39:30.232    <Info> Unmounting filesystems (29)
+08:39:30.319    <Info> Unmounting filesystems (29)
+08:39:57.530    <Info> Mounting filesystems (16)
+08:39:57.614    <Info> Mounting filesystems (16)
+08:39:57.685    <Info> Mounting filesystems (16)
+08:39:57.830 <Verbose> Checkpoint completed id: 0x6B4 (await_asr_and_retry) result=0
+08:39:57.831 <Verbose> Checkpoint started   id: 0x674 (create_protected_filesystems)
+08:39:57.831    <Info> Creating Protected Volume (67)
+08:40:03.169 <Verbose> Checkpoint completed id: 0x674 (create_protected_filesystems) result=0
+08:40:03.170 <Verbose> Checkpoint started   id: 0x65F (reserve_overprov_space)
+08:40:03.177 <Verbose> Checkpoint completed id: 0x65F (reserve_overprov_space) result=0
+08:40:03.178 <Verbose> Checkpoint started   id: 0x680 (read_new_os_build_version)
+08:40:03.184 <Verbose> Checkpoint completed id: 0x680 (read_new_os_build_version) result=0
+08:40:03.184 <Verbose> Checkpoint started   id: 0x6A6 (install_splat)
+08:40:03.185    <Info> About to send BuildIdentity Dict...
+08:40:03.188    <Info> Sending BuildIdentityDict now...
+08:40:03.190    <Info> Done sending BuildIdentityDict
+08:40:03.209    <Info> Spoofing Cryptex1 TSS request...
+08:40:03.209    <Info> Sending Cryptex1 TSS request...
+08:40:03.679    <Info> Received Cryptex1,Ticket
+08:40:03.679    <Info> Sending FirmwareResponse data now...
+08:40:03.679    <Info> Done sending FirmwareUpdater data
+08:40:03.692    <Info> About to send Cryptex1,SystemOS...
+08:40:03.696    <Info> Sending Cryptex1,SystemOS now (3300917248 bytes)
+08:42:06.163    <Info> Done sending Cryptex1,SystemOS
+08:42:06.175    <Info> About to send Cryptex1,SystemVolume...
+08:42:06.179    <Info> Sending Cryptex1,SystemVolume now (229 bytes)
+08:42:06.182    <Info> Done sending Cryptex1,SystemVolume
+08:42:06.183    <Info> About to send Cryptex1,SystemTrustCache...
+08:42:06.184    <Info> Sending Cryptex1,SystemTrustCache now (1871 bytes)
+08:42:06.184    <Info> Done sending Cryptex1,SystemTrustCache
+08:42:06.185    <Info> About to send Cryptex1,AppOS...
+08:42:06.186    <Info> Sending Cryptex1,AppOS now (10485760 bytes)
+08:42:06.566    <Info> Done sending Cryptex1,AppOS
+08:42:06.586    <Info> About to send Cryptex1,AppVolume...
+08:42:06.587    <Info> Sending Cryptex1,AppVolume now (229 bytes)
+08:42:06.588    <Info> Done sending Cryptex1,AppVolume
+08:42:06.589    <Info> About to send Cryptex1,AppTrustCache...
+08:42:06.590    <Info> Sending Cryptex1,AppTrustCache now (767 bytes)
+08:42:06.591    <Info> Done sending Cryptex1,AppTrustCache
+08:42:06.639 <Verbose> Checkpoint completed id: 0x6A6 (install_splat) result=0
+08:42:06.639 <Verbose> Checkpoint started   id: 0x628 (install_kernel_cache)
+08:42:06.640 <Verbose> Checkpoint started   id: 0xE00 (install_kernel_cache)
+08:42:06.675    <Info> About to send KernelCache...
+08:42:06.675    <Info> Extracting kernelcache.release.ipad7b (kernelcache.release.ipad7b)...
+08:42:06.723    <Info> Personalizing IMG4 component KernelCache...
+08:42:06.730    <Info> Sending KernelCache now...
+08:42:07.354    <Info> Done sending KernelCache
+08:42:07.540    <Info> Installing kernelcache (27)
+08:42:07.610 <Verbose> Checkpoint completed id: 0xE00 (install_kernel_cache) result=0
+08:42:07.610 <Verbose> Checkpoint started   id: 0xE01 (install_device_tree)
+08:42:07.675    <Info> About to send DeviceTree...
+08:42:07.675    <Info> Extracting DeviceTree.j71bap.im4p (Firmware/all_flash/DeviceTree.j71bap.im4p)...
+08:42:07.679    <Info> Personalizing IMG4 component DeviceTree...
+08:42:07.679    <Info> Sending DeviceTree now...
+08:42:07.679    <Info> Done sending DeviceTree
+08:42:07.682    <Info> Installing DeviceTree (61)
+08:42:07.683 <Verbose> Checkpoint completed id: 0xE01 (install_device_tree) result=0
+08:42:07.683 <Verbose> Checkpoint started   id: 0xE04 (install_iboot_stage2)
+08:42:07.684    <Info> About to send NORData...
+08:42:07.684    <Info> Found firmware path Firmware/all_flash
+08:42:07.684    <Info> Getting firmware manifest from build identity
+08:42:07.685    <Info> Extracting LLB.ipad7b.RELEASE.im4p (Firmware/all_flash/LLB.ipad7b.RELEASE.im4p)...
+08:42:07.688    <Info> Using cached LLB data
+08:42:07.688    <Info> Personalizing IMG4 component LLB...
+08:42:07.689    <Info> Extracting applelogo@2x~ipad.im4p (Firmware/all_flash/applelogo@2x~ipad.im4p)...
+08:42:07.690    <Info> using cached AppleLogo data
+08:42:07.690    <Info> Personalizing IMG4 component AppleLogo...
+08:42:07.690    <Info> Extracting batterycharging0@2x~ipad.im4p (Firmware/all_flash/batterycharging0@2x~ipad.im4p)...
+08:42:07.691    <Info> using cached BatteryCharging0 data
+08:42:07.691    <Info> Personalizing IMG4 component BatteryCharging0...
+08:42:07.691    <Info> Extracting batterycharging1@2x~ipad.im4p (Firmware/all_flash/batterycharging1@2x~ipad.im4p)...
+08:42:07.692    <Info> using cached BatteryCharging1 data
+08:42:07.692    <Info> Personalizing IMG4 component BatteryCharging1...
+08:42:07.692    <Info> Extracting batteryfull@2x~ipad.im4p (Firmware/all_flash/batteryfull@2x~ipad.im4p)...
+08:42:07.693    <Info> using cached BatteryFull data
+08:42:07.693    <Info> Personalizing IMG4 component BatteryFull...
+08:42:07.693    <Info> Extracting batterylow0@2x~ipad.im4p (Firmware/all_flash/batterylow0@2x~ipad.im4p)...
+08:42:07.694    <Info> using cached BatteryLow0 data
+08:42:07.694    <Info> Personalizing IMG4 component BatteryLow0...
+08:42:07.694    <Info> Extracting batterylow1@2x~ipad.im4p (Firmware/all_flash/batterylow1@2x~ipad.im4p)...
+08:42:07.694    <Info> using cached BatteryLow1 data
+08:42:07.695    <Info> Personalizing IMG4 component BatteryLow1...
+08:42:07.695    <Info> Extracting glyphplugin@2x~ipad-lightning.im4p (Firmware/all_flash/glyphplugin@2x~ipad-lightning.im4p)...
+08:42:07.695    <Info> using cached BatteryPlugin data
+08:42:07.695    <Info> Personalizing IMG4 component BatteryPlugin...
+08:42:07.695    <Info> Extracting DeviceTree.j71bap.im4p (Firmware/all_flash/DeviceTree.j71bap.im4p)...
+08:42:07.696    <Info> Personalizing IMG4 component DeviceTree...
+08:42:07.696    <Info> Extracting recoverymode@2x~ipad-lightning.im4p (Firmware/all_flash/recoverymode@2x~ipad-lightning.im4p)...
+08:42:07.699    <Info> using cached RecoveryMode data
+08:42:07.701    <Info> Personalizing IMG4 component RecoveryMode...
+08:42:07.702    <Info> Extracting iBoot.ipad7b.RELEASE.im4p (Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p)...
+08:42:07.703    <Info> using cached iBoot data
+08:42:07.704    <Info> Personalizing IMG4 component iBoot...
+08:42:07.704    <Info> Extracting iBoot.ipad7b.RELEASE.im4p (Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p)...
+08:42:07.705    <Info> Personalizing IMG4 component iBootTethered2...
+08:42:07.707    <Info> iBoot img4 saved to 'image4/3440501300264998-iPad7,5-17.7.11-iBoot.img4'
+08:42:07.707    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:42:07.710    <Info> Personalizing IMG4 component RestoreSEP...
+08:42:07.711    <Info> Extracting sep-firmware.j71b.RELEASE.im4p (Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p)...
+08:42:07.711    <Info> Using cached SEP data
+08:42:07.712    <Info> Personalizing IMG4 component SEP...
+08:42:07.712    <Info> Sending NORData now...
+08:42:07.948    <Info> Done sending NORData
+08:42:08.065 <Verbose> Checkpoint completed id: 0xE04 (install_iboot_stage2) result=0
+08:42:08.065 <Verbose> Checkpoint started   id: 0xE05 (install_root_hash)
+08:42:08.066    <Info> About to send SystemImageRootHash...
+08:42:08.067    <Info> Extracting 044-75473-038.dmg.root_hash (Firmware/044-75473-038.dmg.root_hash)...
+08:42:08.069    <Info> Personalizing IMG4 component SystemVolume...
+08:42:08.069    <Info> Sending SystemImageRootHash now...
+08:42:08.069    <Info> Done sending SystemImageRootHash
+08:42:08.074 <Verbose> Checkpoint completed id: 0xE05 (install_root_hash) result=0
+08:42:08.075 <Verbose> Checkpoint started   id: 0xE03 (write_ticket)
+08:42:08.086 <Verbose> Checkpoint completed id: 0xE03 (write_ticket) result=0
+08:42:08.086 <Verbose> Checkpoint completed id: 0x628 (install_kernel_cache) result=0
+08:42:08.087 <Verbose> Checkpoint started   id: 0x64D (check_mounted)
+08:42:08.087 <Verbose> Checkpoint started   id: 0xF00 (fixup_var)
+08:42:08.087    <Info> Fixing up /var (17)
+08:42:08.087    <Info> Creating system key bag (50)
+08:42:15.770 <Verbose> Checkpoint completed id: 0xF00 (fixup_var) result=0
+08:42:15.770 <Verbose> Checkpoint started   id: 0xF01 (restore_ota_logs)
+08:42:15.770 <Verbose> Checkpoint completed id: 0xF01 (restore_ota_logs) result=0
+08:42:15.770 <Verbose> Checkpoint started   id: 0xF04 (create_partition_mountpoints)
+08:42:15.771 <Verbose> Checkpoint completed id: 0xF04 (create_partition_mountpoints) result=0
+08:42:15.772 <Verbose> Checkpoint started   id: 0xF09 (create_production_ucrt)
+08:42:15.774 <Verbose> ReverseProxy[Ctrl]: (status=3) Connect Request
+08:42:15.776 <Verbose> ReverseProxy[Conn]: (status=1) Ready
+08:42:15.780 <Verbose> ReverseProxy[Conn]: (status=2) Terminated
+08:42:15.781 <Verbose> Checkpoint completed id: 0xF09 (create_production_ucrt) result=0
+08:42:15.781 <Verbose> Checkpoint completed id: 0x64D (check_mounted) result=0
+08:42:15.781 <Verbose> Checkpoint started   id: 0x69E (set_one_time_boot_command)
+08:42:15.782 <Verbose> Checkpoint completed id: 0x69E (set_one_time_boot_command) result=0
+08:42:15.782 <Verbose> Checkpoint started   id: 0x63B (set_nvram_variables)
+08:42:15.783 <Verbose> Checkpoint completed id: 0x63B (set_nvram_variables) result=0
+08:42:15.784 <Verbose> Checkpoint started   id: 0x639 (persistent_boot_args)
+08:42:15.784    <Info> Modifying persistent boot-args (25)
+08:42:15.786 <Verbose> Checkpoint completed id: 0x639 (persistent_boot_args) result=0
+08:42:15.786 <Verbose> Checkpoint started   id: 0x65E (set_tdm)
+08:42:15.786 <Verbose> Checkpoint completed id: 0x65E (set_tdm) result=0
+08:42:15.786 <Verbose> Checkpoint started   id: 0x688 (populate_preboot_volume)
+08:42:15.970 <Verbose> Checkpoint completed id: 0x688 (populate_preboot_volume) result=0
+08:42:15.971 <Verbose> Checkpoint completed id: 0x67B (perform_restore_installing) result=0
+08:42:15.971 <Verbose> Checkpoint started   id: 0x1600 (recovery_os_restore)
+08:42:15.971 <Verbose> Checkpoint completed id: 0x1600 (recovery_os_restore) result=0
+08:42:15.971 <Verbose> Checkpoint started   id: 0x63F (set_boot_command)
+08:42:15.972 <Verbose> Checkpoint completed id: 0x63F (set_boot_command) result=0
+08:42:15.972 <Verbose> Checkpoint started   id: 0x640 (set_autoboot_delay)
+08:42:15.988 <Verbose> Checkpoint completed id: 0x640 (set_autoboot_delay) result=0
+08:42:15.988 <Verbose> Checkpoint started   id: 0x68B (seal_system_volume)
+08:42:15.988    <Info> About to send SystemImageCanonicalMetadata...
+08:42:15.989    <Info> Extracting 044-75473-038.dmg.mtree (Firmware/044-75473-038.dmg.mtree)...
+08:42:16.059    <Info> Personalizing IMG4 component Ap,SystemVolumeCanonicalMetadata...
+08:42:16.069    <Info> Sending SystemImageCanonicalMetadata now...
+08:42:16.968    <Info> Done sending SystemImageCanonicalMetadata
+08:42:46.737    <Info> About to send SystemImageRootHash...
+08:42:46.739    <Info> Extracting 044-75473-038.dmg.root_hash (Firmware/044-75473-038.dmg.root_hash)...
+08:42:46.740    <Info> Personalizing IMG4 component SystemVolume...
+08:42:46.740    <Info> Sending SystemImageRootHash now...
+08:42:46.740    <Info> Done sending SystemImageRootHash
+08:42:46.744    <Info> Unmounting filesystems (29)
+08:42:46.749    <Info> Unmounting filesystems (29)
+08:42:46.757    <Info> Unmounting filesystems (29)
+08:42:46.778    <Info> Unmounting filesystems (29)
+08:42:46.915    <Info> Unmounting filesystems (29)
+08:42:46.967    <Info> Sealing System Volume (77)
+08:43:15.161 <Verbose> Checkpoint completed id: 0x68B (seal_system_volume) result=0
+08:43:15.163 <Verbose> Checkpoint started   id: 0x669 (create_system_snapshot)
+08:43:15.973 <Verbose> Checkpoint completed id: 0x669 (create_system_snapshot) result=0
+08:43:15.974 <Verbose> Checkpoint started   id: 0x6B2 (prepare_data_split)
+08:43:15.974 <Verbose> Checkpoint completed id: 0x6B2 (prepare_data_split) result=0
+08:43:15.974 <Verbose> Checkpoint started   id: 0x6B1 (convert_eds_volumes)
+08:43:15.974 <Verbose> Checkpoint completed id: 0x6B1 (convert_eds_volumes) result=0
+08:43:15.975 <Verbose> Checkpoint started   id: 0x6AA (split_data_volume)
+08:43:15.975 <Verbose> Checkpoint completed id: 0x6AA (split_data_volume) result=0
+08:43:15.975 <Verbose> Checkpoint started   id: 0x6AB (commit_temporary_checkpoint)
+08:43:15.975 <Verbose> Checkpoint completed id: 0x6AB (commit_temporary_checkpoint) result=0
+08:43:15.975 <Verbose> Checkpoint started   id: 0x6BB (migrate_user_fsevents)
+08:43:16.579 <Verbose> Checkpoint completed id: 0x6BB (migrate_user_fsevents) result=0
+08:43:16.579 <Verbose> Checkpoint started   id: 0x642 (unmount_filesystems)
+08:43:16.580    <Info> Unmounting filesystems (29)
+08:43:16.588    <Info> Unmounting filesystems (29)
+08:43:16.593    <Info> Unmounting filesystems (29)
+08:43:16.800    <Info> Unmounting filesystems (29)
+08:43:16.894    <Info> Unmounting filesystems (29)
+08:43:16.894 <Verbose> Checkpoint completed id: 0x642 (unmount_filesystems) result=0
+08:43:16.895 <Verbose> Checkpoint started   id: 0x67C (cleanup_boot_command)
+08:43:16.895 <Verbose> Checkpoint completed id: 0x67C (cleanup_boot_command) result=0
+08:43:16.896 <Verbose> Checkpoint started   id: 0x1613 (cleanup_recovery_os_volume)
+08:43:16.896 <Verbose> Checkpoint completed id: 0x1613 (cleanup_recovery_os_volume) result=0
+08:43:16.896 <Verbose> Checkpoint started   id: 0x647 (cleanup_check_result)
+08:43:16.896 <Verbose> Checkpoint completed id: 0x647 (cleanup_check_result) result=0
+08:43:16.897 <Verbose> Checkpoint started   id: 0x648 (cleanup_send_final_status)
+08:43:16.897    <Info> Got status message
+08:43:16.897    <Info> Status: Restore Finished
+08:43:17.833 <Verbose> ReverseProxy[Ctrl]: (status=2) Terminated
+08:43:17.837    <Info> DONE

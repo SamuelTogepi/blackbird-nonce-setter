@@ -1,0 +1,30 @@
+08:56:12.564    <Info> idevicerestore_fork 1.0.0-git-a73b9de (libirecovery 1.2.1-31-g0b48934, libtatsu 1.0.5-3-g60a39f3)
+08:56:12.581    <Info> Found device in DFU mode
+08:56:12.582    <Info> ECID: 3440501300264998
+08:56:12.582    <Info> Identified device as j71bap, iPad7,5
+08:56:12.583    <Info> Device Product Version: N/A
+08:56:12.583    <Info> Device Product Build: N/A
+08:56:12.583    <Info> Extracting BuildManifest from IPSW
+08:56:12.587    <Info> IPSW Product Version: 17.7.11
+08:56:12.587    <Info> IPSW Product Build: 21H461 Major: 21
+08:56:12.587    <Info> RAMDisk type: 0x0004
+08:56:12.587    <Info> Loading overlay ramdisk...
+08:56:12.588    <Info> Loaded embedded overlay ramdisk, length 1048632
+08:56:12.588    <Info> Loading Pongo...
+08:56:12.589    <Info> Loaded embedded Pongo, length 238128
+08:56:12.589    <Info> Loading sep_racer...
+08:56:12.591    <Info> Loaded embedded sep_racer module, length 1211568
+08:56:12.591    <Info> Loading kpf...
+08:56:12.592    <Info> Loaded embedded kpf module, length 92296
+08:56:12.592    <Info> Loading cpf...
+08:56:12.592    <Info> Loaded embedded cpf module, length 67504
+08:56:12.592    <Info> Checking PongoOS image...
+08:56:12.592    <Info> Loading image flags...
+08:56:12.592    <Info> Checking image flags...
+08:56:12.592    <Info> Checking image version flags...
+08:56:12.592    <Info> Device supports Image4: true
+08:56:12.592    <Info> Variant: Customer Erase Install (IPSW)
+08:56:12.592    <Info> This restore will erase all device data.
+08:56:12.749    <Info> The following firmwares are currently being signed for iPad7,5:
+08:56:12.749    <Info>   [1] 17.7.11 (build 21H461)
+08:56:12.749    <Info>   [2] 17.7.10 (build 21H450)

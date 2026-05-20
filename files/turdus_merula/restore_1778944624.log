@@ -1,0 +1,51 @@
+11:17:04.618    <Info> idevicerestore_fork 1.0.0-git-a73b9de (libirecovery 1.2.1-31-g0b48934, libtatsu 1.0.5-3-g60a39f3)
+11:17:04.629    <Info> Found device in DFU mode
+11:17:04.630    <Info> ECID: 3440501300264998
+11:17:04.630    <Info> Identified device as j71bap, iPad7,5
+11:17:04.632    <Info> Device Product Version: N/A
+11:17:04.632    <Info> Device Product Build: N/A
+11:17:04.632    <Info> Extracting BuildManifest from IPSW
+11:17:04.636    <Info> IPSW Product Version: 11.3
+11:17:04.636    <Info> IPSW Product Build: 15E216 Major: 15
+11:17:04.636    <Info> RAMDisk type: 0x0001
+11:17:04.636    <Info> Loading overlay ramdisk...
+11:17:04.637    <Info> Loaded embedded overlay ramdisk, length 1048632
+11:17:04.637    <Info> Loading Pongo...
+11:17:04.638    <Info> Loaded embedded Pongo, length 238128
+11:17:04.638    <Info> Loading sep_racer...
+11:17:04.641    <Info> Loaded embedded sep_racer module, length 1211568
+11:17:04.641    <Info> Loading kpf...
+11:17:04.641    <Info> Loaded embedded kpf module, length 92296
+11:17:04.641    <Info> Loading cpf...
+11:17:04.641    <Info> Loaded embedded cpf module, length 67504
+11:17:04.641    <Info> Checking PongoOS image...
+11:17:04.641    <Info> Loading image flags...
+11:17:04.642    <Info> Checking image flags...
+11:17:04.642    <Info> Device supports Image4: true
+11:17:04.642    <Info> Variant: Customer Erase Install (IPSW)
+11:17:04.642    <Info> This restore will erase all device data.
+11:17:04.838    <Info> The following firmwares are currently being signed for iPad7,5:
+11:17:04.838    <Info>   [1] 17.7.11 (build 21H461)
+11:17:04.838    <Info>   [2] 17.7.10 (build 21H450)
+11:17:05.673    <Info> Selected SE/RestoreSEP version 17.7.11 (build 21H461)
+11:17:06.392    <Info> Downloading BuildManifest.plist
+11:17:06.739    <Info> SE Firmware manifest information
+11:17:06.739    <Info> Variant: Customer Erase Install (IPSW)
+11:17:06.739    <Info> This restore will erase all device data.
+11:17:06.739    <Info> Downloading Firmware/SE/Stockholm4.RELEASE.sefw
+11:17:11.153    <Info> RestoreSEP manifest information
+11:17:11.154    <Info> Variant: Customer Erase Install (IPSW)
+11:17:11.154    <Info> This restore will erase all device data.
+11:17:11.154    <Info> Downloading Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p
+11:17:13.411    <Info> Checking IPSW for required components...
+11:17:13.417    <Info> All required components found in IPSW
+11:17:13.418    <Info> Checking hashes...
+manifest DGST: e50de452ad0e9b2a1e26d927e2df8a13a0d053ca88aa1b31a145c1eed45c9a2707a90f101ca367b7cb093fad4c4f4d16
+11:17:13.418    <Info> Found RestoreRamdisk digest
+DGST: e50de452ad0e9b2a1e26d927e2df8a13a0d053ca88aa1b31a145c1eed45c9a2707a90f101ca367b7cb093fad4c4f4d16
+11:17:13.418    <Info> Extracting aopfw-ipad7baop.im4p (Firmware/AOP/aopfw-ipad7baop.im4p)...
+AOP digest: 5d6831a67f31f791699f51670dfbe2efb8be3453cdf598c2d6d4f7e6dee339781df898f5dc4f7f5c366862b86cbb98d9
+AOP hash: 5d6831a67f31f791699f51670dfbe2efb8be3453cdf598c2d6d4f7e6dee339781df898f5dc4f7f5c366862b86cbb98d9
+manifest DGST: f484a1bcda2dfe980538073826e940218ff7ffd7e1b0cda7ea10c53687a0a220cfc58bcecc7ad0f95af6f84086f0cf10
+11:17:13.428    <Info> Hash does not match
+11:17:13.428   <Error> Failed to image4 manifest check [comp: AOP, res: 0000000d]

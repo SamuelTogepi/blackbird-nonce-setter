@@ -1,0 +1,36 @@
+08:34:42.780    <Info> idevicerestore_fork 1.0.0-git-a73b9de (libirecovery 1.2.1-31-g0b48934, libtatsu 1.0.5-3-g60a39f3)
+08:34:42.790    <Info> Found device in DFU mode
+08:34:42.791    <Info> ECID: 3440501300264998
+08:34:42.791    <Info> Identified device as j71bap, iPad7,5
+08:34:42.792    <Info> Device Product Version: N/A
+08:34:42.792    <Info> Device Product Build: N/A
+08:34:42.792    <Info> Extracting BuildManifest from IPSW
+08:34:42.797    <Info> IPSW Product Version: 17.7.11
+08:34:42.797    <Info> IPSW Product Build: 21H461 Major: 21
+08:34:42.797    <Info> RAMDisk type: 0x0004
+08:34:42.797    <Info> Loading overlay ramdisk...
+08:34:42.798    <Info> Loaded embedded overlay ramdisk, length 1048632
+08:34:42.798    <Info> Loading Pongo...
+08:34:42.799    <Info> Loaded embedded Pongo, length 238128
+08:34:42.799    <Info> Loading sep_racer...
+08:34:42.803    <Info> Loaded embedded sep_racer module, length 1211568
+08:34:42.803    <Info> Loading kpf...
+08:34:42.803    <Info> Loaded embedded kpf module, length 92296
+08:34:42.803    <Info> Loading cpf...
+08:34:42.803    <Info> Loaded embedded cpf module, length 67504
+08:34:42.803    <Info> Checking PongoOS image...
+08:34:42.803    <Info> Loading image flags...
+08:34:42.803    <Info> Checking image flags...
+08:34:42.803    <Info> Checking image version flags...
+08:34:42.803    <Info> Device supports Image4: true
+08:34:42.803    <Info> Variant: Customer Erase Install (IPSW)
+08:34:42.803    <Info> This restore will erase all device data.
+08:34:43.178    <Info> The following firmwares are currently being signed for iPad7,5:
+08:34:43.179    <Info>   [1] 17.7.11 (build 21H461)
+08:34:43.179    <Info>   [2] 17.7.10 (build 21H450)
+08:34:44.501    <Info> Selected SE/RestoreSEP/Base version 17.7.11 (build 21H461)
+08:34:47.467    <Info> Downloading BuildManifest.plist
+08:34:47.973    <Info> SE Firmware manifest information
+08:34:47.973    <Info> Variant: Customer Erase Install (IPSW)
+08:34:47.973    <Info> This restore will erase all device data.
+08:34:47.973    <Info> Downloading Firmware/SE/Stockholm4.RELEASE.sefw

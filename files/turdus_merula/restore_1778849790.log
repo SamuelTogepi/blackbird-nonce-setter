@@ -1,0 +1,53 @@
+08:56:30.604    <Info> idevicerestore_fork 1.0.0-git-a73b9de (libirecovery 1.2.1-31-g0b48934, libtatsu 1.0.5-3-g60a39f3)
+08:56:30.619    <Info> Found device in DFU mode
+08:56:30.620    <Info> ECID: 3440501300264998
+08:56:30.620    <Info> Identified device as j71bap, iPad7,5
+08:56:30.621    <Info> Device Product Version: N/A
+08:56:30.621    <Info> Device Product Build: N/A
+08:56:30.621    <Info> Extracting BuildManifest from IPSW
+08:56:30.627    <Info> IPSW Product Version: 17.7.11
+08:56:30.627    <Info> IPSW Product Build: 21H461 Major: 21
+08:56:30.627    <Info> RAMDisk type: 0x0004
+08:56:30.627    <Info> Loading overlay ramdisk...
+08:56:30.628    <Info> Loaded embedded overlay ramdisk, length 1048632
+08:56:30.628    <Info> Loading Pongo...
+08:56:30.629    <Info> Loaded embedded Pongo, length 238128
+08:56:30.629    <Info> Loading sep_racer...
+08:56:30.632    <Info> Loaded embedded sep_racer module, length 1211568
+08:56:30.632    <Info> Loading kpf...
+08:56:30.632    <Info> Loaded embedded kpf module, length 92296
+08:56:30.632    <Info> Loading cpf...
+08:56:30.632    <Info> Loaded embedded cpf module, length 67504
+08:56:30.632    <Info> Checking PongoOS image...
+08:56:30.632    <Info> Loading image flags...
+08:56:30.633    <Info> Checking image flags...
+08:56:30.633    <Info> Checking image version flags...
+08:56:30.633    <Info> Device supports Image4: true
+08:56:30.633    <Info> Variant: Customer Erase Install (IPSW)
+08:56:30.633    <Info> This restore will erase all device data.
+08:56:30.771    <Info> The following firmwares are currently being signed for iPad7,5:
+08:56:30.771    <Info>   [1] 17.7.11 (build 21H461)
+08:56:30.771    <Info>   [2] 17.7.10 (build 21H450)
+08:56:32.230    <Info> Selected SE/RestoreSEP/Base version 17.7.11 (build 21H461)
+08:56:33.336    <Info> Downloading BuildManifest.plist
+08:56:33.646    <Info> SE Firmware manifest information
+08:56:33.646    <Info> Variant: Customer Erase Install (IPSW)
+08:56:33.646    <Info> This restore will erase all device data.
+08:56:33.646    <Info> Downloading Firmware/SE/Stockholm4.RELEASE.sefw
+08:56:35.493    <Info> RestoreSEP manifest information
+08:56:35.493    <Info> Variant: Customer Erase Install (IPSW)
+08:56:35.493    <Info> This restore will erase all device data.
+08:56:35.493    <Info> Downloading Firmware/all_flash/sep-firmware.j71b.RELEASE.im4p
+08:56:35.934    <Info> Base Firmware manifest information
+08:56:35.934    <Info> Variant: Customer Erase Install (IPSW)
+08:56:35.934    <Info> This restore will erase all device data.
+08:56:35.934    <Info> Downloading Firmware/all_flash/LLB.ipad7b.RELEASE.im4p
+08:56:36.213    <Info> Downloading Firmware/all_flash/iBoot.ipad7b.RELEASE.im4p
+08:56:36.326    <Info> Downloading Firmware/all_flash/applelogo@2x~ipad.im4p
+08:56:36.437    <Info> Downloading Firmware/all_flash/recoverymode@2x~ipad-lightning.im4p
+08:56:36.588    <Info> Downloading Firmware/all_flash/batterycharging0@2x~ipad.im4p
+08:56:36.711    <Info> Downloading Firmware/all_flash/batterycharging1@2x~ipad.im4p
+08:56:36.862    <Info> Downloading Firmware/all_flash/batteryfull@2x~ipad.im4p
+08:56:36.973    <Info> Downloading Firmware/all_flash/batterylow0@2x~ipad.im4p
+08:56:37.093    <Info> Downloading Firmware/all_flash/batterylow1@2x~ipad.im4p
+08:56:37.193    <Info> Downloading Firmware/all_flash/glyphplugin@2x~ipad-lightning.im4p
