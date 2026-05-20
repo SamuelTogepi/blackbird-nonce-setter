@@ -2,7 +2,7 @@
 
 clear
 echo "========================================================================="
-echo "       turdus_merula Untethered Downgrade Automator (A10)"
+echo "       blackbird-nonce-setter & turdus_merula (A9/A10)"
 echo "            Target: iPad 6th Generation -> iOS 11.3"
 echo "========================================================================="
 echo ""
@@ -15,9 +15,9 @@ if [[ "$OS" != "Darwin" && "$OS" != "Linux" ]]; then
 fi
 
 # Locate turdus_merula directory
-if [ -d "turdus_m3rula" ]; then
-    cd turdus_m3rula || exit 1
-elif [ -f "./bin/turdus_merula" ]; then
+if [ -d "turdus_merula" ]; then
+    cd files/turdus_merula || exit 1
+elif [ -f "./files/turdus_merula/bin/turdus_merula" ]; then
     echo "[!] Already inside the turdus_merula directory."
 else
     echo "[?] Please enter the path to your extracted turdus_merula folder:"
@@ -48,7 +48,6 @@ fi
 # Step 2: Input & Validate 11.3 SHSH Blobs
 echo ""
 echo "[?] Drag and drop your iOS 11.3 SHSH/SHSH2 blob file into this window and press Enter:"
-echo "[!] Note: Untethered downgrades require valid pre-saved blobs."
 read -r shsh
 shsh=$(echo "$shsh" | sed -e 's/^['\''"]//' -e 's/['\''"]$//')
 
@@ -69,28 +68,29 @@ if [ -z "$generator" ]; then
 fi
 echo "[!] Parsed Generator: $generator"
 
-# Step 3: Run turdusra1n with Generator
+# Step 3: Run turdusra1n with Generator (Blackbird Nonce Setter)
 echo ""
 echo "========================================================================="
-echo " STEP 1/2: Exploiting with turdusra1n"
+echo " STEP 1/2: Exploiting & Setting Nonce with turdusra1n"
 echo "========================================================================="
-echo "[*] Please connect your iPad 6th Gen in DFU mode."
-echo "[*] Press Enter when the device is connected."
-read -r _
+echo "[*] Run commands below when prompted:"
+echo "[*] Triggering: ./files/turdus_merula/bin/turdusra1n -Db $generator"
+echo "[*] Follow the on-screen instructions to enter DFU mode."
+echo ""
+read -p "Press Enter to execute exploit..." _
 
-echo "[*] Running turdusra1n with generator..."
-sudo ./bin/turdusra1n -Db "$generator"
+sudo ./files/turdus_merula/bin/turdusra1n -Db "$generator"
 
-# Step 4: Execute Untethered Restore
+# Step 4: Execute Restore
 echo ""
 echo "========================================================================="
 echo " STEP 2/2: Restoring with turdus_merula"
 echo "========================================================================="
-echo "[*] Press Enter when ready to write the generator and restore."
-read -r _
+echo "[*] Triggering: ./files/turdus_merula/bin/turdus_merula -w --load-shsh $shsh $ipsw"
+echo ""
+read -p "Press Enter to start the restoration..." _
 
-echo "[*] Starting untethered restore process..."
-sudo ./bin/turdus_merula -w --load-shsh "$shsh" "$ipsw"
+sudo ./files/turdus_merula/bin/turdus_merula -w --load-shsh "$shsh" "$ipsw"
 
 echo ""
-echo "[!] Process completed. If the commands ran successfully, follow any remaining on-screen prompts."
+echo "[!] Restore command finished. Follow any remaining on-screen prompts in your terminal."
