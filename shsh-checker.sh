@@ -3,7 +3,7 @@
 clear
 echo "========================================================================="
 echo "              Samuel's SHSH & IPSW Component Patching Tool"
-echo "                      (Automated Hash Injector)"
+echo "                (iPad 6th Gen iPad7,5 / iPad7,6 Edition)"
 echo "========================================================================="
 echo ""
 
@@ -30,7 +30,7 @@ fi
 echo "------------------------------------------------------------------------"
 echo " [1/3] SHSH Verification Module"
 echo "------------------------------------------------------------------------"
-echo "[?] Drag and drop your iOS 11.3 SHSH blob file here and press Enter:"
+echo "[?] Drag and drop your target SHSH blob file here and press Enter:"
 read -r shsh
 shsh=$(echo "$shsh" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
 
@@ -61,116 +61,180 @@ echo ""
 echo "------------------------------------------------------------------------"
 echo " [2/3] Component Hash Fix (AOP Patching & Hash Injection)"
 echo "------------------------------------------------------------------------"
-echo "Do you want to patch your iOS 11.3 IPSW to fix the 'Failed to image4 manifest check [comp: AOP]' error? (y/n)"
+echo "Do you want to patch your target IPSW using iPad7,5 / iPad7,6 iOS 17.7 base components? (y/n)"
 read -r patch_choice
 
 if [[ "$patch_choice" =~ ^[Yy](es)?$ ]]; then
-    echo "[?] Drag and drop your original iOS 11.3 IPSW file and press Enter:"
-    read -r ipsw_11
-    ipsw_11=$(echo "$ipsw_11" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
+    echo "[?] Drag and drop your original older target IPSW file (e.g., iOS 14.x/15.x) and press Enter:"
+    read -r ipsw_target
+    ipsw_target=$(echo "$ipsw_target" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
 
-    if [ ! -f "$ipsw_11" ]; then
-        echo "[#] Error: iOS 11.3 IPSW not found."
+    if [ ! -f "$ipsw_target" ]; then
+        echo "[#] Error: Target IPSW not found."
         exit 1
     fi
 
-    echo "[?] Drag and drop your signed iOS 17.7.11 IPSW file (downloaded from ipsw.me) and press Enter:"
-    read -r ipsw_17
-    ipsw_17=$(echo "$ipsw_17" | sed -e 's/^['\''"]//' -e 's/['\''"]$//' -e 's/\\//g' -e 's/[[:space:]]*$//')
-
-    if [ ! -f "$ipsw_17" ]; then
-        echo "[#] Error: iOS 17.7.11 IPSW not found."
-        exit 1
-    fi
+    # Define Apple official URL for iOS 17.7 on iPad 6 (ASTC TouchID architecture)
+    BASE_IPSW_URL="https://updates.cdn-apple.com/2024FallFCS/fullrestores/062-78995/AE33744E-AF74-4486-9C78-56519F307FDB/iPad_64bit_TouchID_ASTC_17.7_21H16_Restore.ipsw"
 
     echo ""
     echo "[*] Creating working directories..."
-    mkdir -p tmp_11_extract tmp_17_extract
+    rm -rf tmp_target_extract tmp_base_extract
+    mkdir -p tmp_target_extract tmp_base_extract
     
-    echo "[*] Extracting iOS 17.7.11 components..."
-    unzip -q -j "$ipsw_17" "Firmware/AOP/aopfw-ipad7baop.RELEASE.im4p" -d tmp_17_extract/
-    unzip -q -j "$ipsw_17" "BuildManifest.plist" -d tmp_17_extract/
-    
-    if [ ! -f "tmp_17_extract/aopfw-ipad7baop.RELEASE.im4p" ]; then
-        echo "[#] Error: Could not extract components from iOS 17 IPSW."
-        rm -rf tmp_11_extract tmp_17_extract
+    echo "[*] Fetching BuildManifest from Apple's signed iOS 17.7 IPSW..."
+    sudo ./bin/pzb -g BuildManifest.plist "$BASE_IPSW_URL"
+    if [ ! -f "BuildManifest.plist" ]; then
+        echo "[#] Error: Failed to fetch BuildManifest.plist from Apple's CDN."
+        rm -rf tmp_target_extract tmp_base_extract
         exit 1
     fi
+    mv BuildManifest.plist tmp_base_extract/BuildManifest.plist
 
-    echo "[*] Unzipping iOS 11.3 IPSW structure..."
-    unzip -q "$ipsw_11" -d tmp_11_extract/
+    echo "[*] Parsing iOS 17.7 BuildManifest dynamically for iPad7,5 / iPad7,6 files..."
+    
+    # Extract filenames using python
+    python3 -c "
+import plistlib
+with open('tmp_base_extract/BuildManifest.plist', 'rb') as f:
+    plist = plistlib.load(f)
+for identity in plist.get('BuildIdentities', []):
+    manifest = identity.get('Manifest', {})
+    
+    # Grab RestoreRamDisk
+    if 'RestoreRamDisk' in manifest:
+        print(f'RESTORE_RD=' + manifest['RestoreRamDisk']['Info']['Path'])
+    
+    # Grab AOP component
+    if 'AOP' in manifest:
+        print(f'AOP_PATH=' + manifest['AOP']['Info']['Path'])
+        
+    # Grab iBSS & iBEC
+    if 'iBSS' in manifest:
+        print(f'IBSS_PATH=' + manifest['iBSS']['Info']['Path'])
+    if 'iBEC' in manifest:
+        print(f'IBEC_PATH=' + manifest['iBEC']['Info']['Path'])
+    break
+" > parsed_components.txt
 
-    echo "[*] Granting write permissions to extracted folders..."
-    chmod -R +w tmp_11_extract tmp_17_extract 2>/dev/null
+    # Parse key variables
+    RESTORE_RD=$(grep "RESTORE_RD=" parsed_components.txt | cut -d'=' -f2)
+    AOP_PATH=$(grep "AOP_PATH=" parsed_components.txt | cut -d'=' -f2)
+    IBSS_PATH=$(grep "IBSS_PATH=" parsed_components.txt | cut -d'=' -f2)
+    IBEC_PATH=$(grep "IBEC_PATH=" parsed_components.txt | cut -d'=' -f2)
+    rm -f parsed_components.txt
 
-    echo "[*] Overriding iOS 11.3 AOP firmware binary with iOS 17.7.11 version..."
-    cp -f tmp_17_extract/aopfw-ipad7baop.RELEASE.im4p tmp_11_extract/Firmware/AOP/aopfw-ipad7baop.im4p
+    echo "[!] Extracted target paths from iOS 17.7 base manifest:"
+    echo "    - AOP Path: $AOP_PATH"
+    echo "    - Restore Ramdisk: $RESTORE_RD"
+    echo "    - iBSS: $IBSS_PATH"
+    echo "    - iBEC: $IBEC_PATH"
+    echo ""
+
+    # Partially download these specific components from the Apple server using pzb
+    echo "[*] Fetching AOP firmware component from iOS 17.7..."
+    sudo ./bin/pzb -g "$AOP_PATH" "$BASE_IPSW_URL"
+    mkdir -p tmp_base_extract/Firmware/AOP/
+    mv "$(basename "$AOP_PATH")" tmp_base_extract/Firmware/AOP/
+
+    echo "[*] Fetching Restore Ramdisk from iOS 17.7..."
+    sudo ./bin/pzb -g "$RESTORE_RD" "$BASE_IPSW_URL"
+    mv "$(basename "$RESTORE_RD")" tmp_base_extract/
+
+    echo "[*] Fetching Trustcache for the Restore Ramdisk..."
+    sudo ./bin/pzb -g "${RESTORE_RD}.trustcache" "$BASE_IPSW_URL"
+    mv "$(basename "${RESTORE_RD}.trustcache")" tmp_base_extract/
+
+    echo "[*] Unzipping original target IPSW structure..."
+    unzip -q "$ipsw_target" -d tmp_target_extract/
+    chmod -R +w tmp_target_extract tmp_base_extract 2>/dev/null
+
+    echo "[*] Swapping AOP firmware binary into target IPSW..."
+    cp -f "tmp_base_extract/Firmware/AOP/$(basename "$AOP_PATH")" tmp_target_extract/Firmware/AOP/aopfw-ipad7baop.im4p
+
+    echo "[*] Swapping iOS 17.7 Restore Ramdisk into target IPSW..."
+    # Replace target's original ramdisk with the one we extracted
+    orig_target_rd=$(find tmp_target_extract/ -name "0*.dmg" | head -n 1)
+    if [ -f "$orig_target_rd" ]; then
+        cp -f "tmp_base_extract/$(basename "$RESTORE_RD")" "$orig_target_rd"
+        cp -f "tmp_base_extract/$(basename "${RESTORE_RD}.trustcache")" "${orig_target_rd}.trustcache"
+    fi
 
     echo "[*] Writing Python helper to patch BuildManifest.plist hashes..."
     cat << 'EOF' > patch_manifest.py
 import sys
 import plistlib
 
-manifest11_path = sys.argv[1]
-manifest17_path = sys.argv[2]
+manifest_target_path = sys.argv[1]
+manifest_base_path = sys.argv[2]
 
 try:
-    with open(manifest11_path, 'rb') as f:
-        plist11 = plistlib.load(f)
+    with open(manifest_target_path, 'rb') as f:
+        data_target = f.read()
+        fmt_target = plistlib.detect_format(data_target)
+        plist_target = plistlib.loads(data_target)
 
-    with open(manifest17_path, 'rb') as f:
-        plist17 = plistlib.load(f)
+    with open(manifest_base_path, 'rb') as f:
+        plist_base = plistlib.load(f)
 
-    aop_17 = None
-    for identity in plist17.get('BuildIdentities', []):
+    aop_base = None
+    for identity in plist_base.get('BuildIdentities', []):
         manifest = identity.get('Manifest', {})
         if 'AOP' in manifest:
-            aop_17 = manifest['AOP']
-            # Make sure it points to the destination filename expected in iOS 11.3
-            if 'Info' in aop_17 and 'Path' in aop_17['Info']:
-                aop_17['Info']['Path'] = "Firmware/AOP/aopfw-ipad7baop.im4p"
+            aop_base = manifest['AOP']
             break
 
-    if not aop_17:
-        print("[-] Error: AOP key not found in iOS 17 BuildManifest.")
+    if not aop_base:
+        print("[-] Error: AOP key not found in base BuildManifest.")
         sys.exit(1)
 
     patched_count = 0
-    for identity in plist11.get('BuildIdentities', []):
+    for identity in plist_target.get('BuildIdentities', []):
         manifest = identity.get('Manifest', {})
         if 'AOP' in manifest:
-            manifest['AOP'] = aop_17
+            orig_aop = manifest['AOP']
+            
+            # Perform clean injection swap
+            if 'Digest' in aop_base:
+                orig_aop['Digest'] = aop_base['Digest']
+            if 'Info' in aop_base:
+                orig_aop['Info'] = aop_base['Info'].copy()
+                orig_aop['Info']['Path'] = "Firmware/AOP/aopfw-ipad7baop.im4p"
+            if 'Trusted' in aop_base:
+                orig_aop['Trusted'] = aop_base['Trusted']
+                
+            manifest['AOP'] = orig_aop
             patched_count += 1
 
     if patched_count == 0:
-        print("[-] Warning: No AOP key found in iOS 11.3 BuildManifest to replace.")
+        print("[-] Warning: No target AOP key found to replace.")
         sys.exit(1)
 
-    with open(manifest11_path, 'wb') as f:
-        plistlib.dump(plist11, f)
+    with open(manifest_target_path, 'wb') as f:
+        plistlib.dump(plist_target, f, fmt=fmt_target)
 
-    print(f"[+] Successfully matched and patched AOP hashes inside {patched_count} build manifest identities.")
+    print(f"[+] Successfully patched AOP manifest signatures ({patched_count} build identities).")
 except Exception as e:
-    print(f"[-] Python error: {e}")
+    print(f"[-] Python error during plist edit: {e}")
     sys.exit(1)
 EOF
 
     echo "[*] Executing BuildManifest hash injection..."
-    python3 patch_manifest.py tmp_11_extract/BuildManifest.plist tmp_17_extract/BuildManifest.plist
+    python3 patch_manifest.py tmp_target_extract/BuildManifest.plist tmp_base_extract/BuildManifest.plist
     
     if [ $? -ne 0 ]; then
         echo "[#] Error: BuildManifest patch failed. Aborting."
         rm -f patch_manifest.py
-        rm -rf tmp_11_extract tmp_17_extract
+        rm -rf tmp_target_extract tmp_base_extract
         exit 1
     fi
     rm -f patch_manifest.py
 
-    echo "[*] Repacking patched iOS 11.3 IPSW (this may take a couple of minutes)..."
-    patched_filename="iPad_7,5_11.3_PATCHED.ipsw"
+    echo "[*] Repacking patched IPSW (this may take a couple of minutes)..."
+    patched_filename="iPad6_PATCHED.ipsw"
     
     rm -f "../$patched_filename"
-    cd tmp_11_extract || exit 1
+    cd tmp_target_extract || exit 1
     zip -q -r "../$patched_filename" .
     cd ..
 
@@ -178,7 +242,7 @@ EOF
     
     # Cleanup working directories
     echo "[*] Cleaning up temporary files..."
-    rm -rf tmp_11_extract tmp_17_extract
+    rm -rf tmp_target_extract tmp_base_extract
 else
     echo "[*] Skipping IPSW patching."
 fi
@@ -190,10 +254,10 @@ echo ""
 echo "------------------------------------------------------------------------"
 echo " [3/3] Execution Guidelines"
 echo "------------------------------------------------------------------------"
-if [ -f "iPad_7,5_11.3_PATCHED.ipsw" ]; then
+if [ -f "iPad6_PATCHED.ipsw" ]; then
     echo "Run the restore using your valid SHSH blob and the newly patched IPSW:"
     echo ""
-    echo "sudo ./bin/turdus_merula -w --load-shsh $shsh $(pwd)/iPad_7,5_11.3_PATCHED.ipsw"
+    echo "sudo ./bin/turdus_merula -w --load-shsh $shsh $(pwd)/iPad6_PATCHED.ipsw"
 else
     echo "No patched IPSW was created."
 fi
